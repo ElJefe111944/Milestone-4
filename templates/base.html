@@ -35,11 +35,18 @@
         <title>Timekeepers{% block extre_title %}{% endblock %}</title>
   </head>
   <body>
+
+
    
     {% if messages %}
     <div class="message-container"></div>
     {% endif %}
 
+
+
+   
+    {% block postloadjs %}
+    {% endblock %}
     
   </body>
 </html>
