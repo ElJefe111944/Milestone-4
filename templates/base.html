@@ -75,14 +75,16 @@
                             </li>
                         </ul>
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item"><a class="nav-link" href="#"> <i
-                                        class="fas fa-dolly-flatbed mr-1 text-gray"></i>Cart<small
-                                        class="text-gray">(2)</small></a></li>
-                            <li class="nav-item"><a class="nav-link" href="#"> <i class="far fa-heart mr-1"></i><small
-                                        class="text-gray"> (0)</small></a></li>
-                                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="pagesDropdown" href="#"
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-shopping-cart"></i>
+                                        Cart<small class="text-gray">(0)</small>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="pagesDropdown" href="#"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-user-alt mr-1 text-gray"></i>My Account</a>
+                                    <i class="fas fa-user"></i> My Account</a>
                                 <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown">
                                     {% if request.user.is_authenticated %}
                                         {% if request.user.is_superuser %}
