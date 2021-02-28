@@ -23,7 +23,8 @@
     {% endblock %}
 
     {% block extracss %}
-
+        <!-- Font Awsome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
@@ -47,14 +48,14 @@
         <header class="header bg-white">
             <div class="container px-0 px-lg-3">
                 <nav class="navbar navbar-expand-lg navbar-light py-3 px-lg-0"><a class="navbar-brand"
-                        href="index.html"><span class="font-weight-bold text-uppercase text-dark">Boutique</span></a>
+                        href="{% url 'homepage' %}"><span class="font-weight-bold text-uppercase text-dark">Time</span>Keepers <i class="fab fa-watchman-monitoring"></i></a>
                     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                         aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <!-- Link--><a class="nav-link active" href="index.html">Home</a>
+                                <!-- Link--><a class="nav-link active" href="{% url 'homepage' %}">Home</a>
                             </li>
                             <li class="nav-item">
                                 <!-- Link--><a class="nav-link" href="#">Shop</a>
@@ -65,7 +66,7 @@
                             <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="pagesDropdown" href="#"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
                                 <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown"><a
-                                        class="dropdown-item border-0 transition-link" href="index.html">Homepage</a><a
+                                        class="dropdown-item border-0 transition-link" href="{% url 'homepage' %}">Homepage</a><a
                                         class="dropdown-item border-0 transition-link" href="#">Category</a><a
                                         class="dropdown-item border-0 transition-link" href="#">Product
                                         detail</a><a class="dropdown-item border-0 transition-link"
@@ -79,8 +80,17 @@
                                         class="text-gray">(2)</small></a></li>
                             <li class="nav-item"><a class="nav-link" href="#"> <i class="far fa-heart mr-1"></i><small
                                         class="text-gray"> (0)</small></a></li>
-                            <li class="nav-item"><a class="nav-link" href="#"> <i
-                                        class="fas fa-user-alt mr-1 text-gray"></i>Login</a></li>
+                                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="pagesDropdown" href="#"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-user-alt mr-1 text-gray"></i>My Account</a>
+                                <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown">
+                                    <a class="dropdown-item border-0 transition-link" href="#">Homepage</a>
+                                    <a class="dropdown-item border-0 transition-link" href="#">Category</a>
+                                    <a class="dropdown-item border-0 transition-link" href="#">Product detail</a>
+                                    <a class="dropdown-item border-0 transition-link" href="#">Shopping cart</a>
+                                    <a class="dropdown-item border-0 transition-link" href="#">Checkout</a>
+                                </div>
+                            </li>                            
                         </ul>
                     </div>
                 </nav>
