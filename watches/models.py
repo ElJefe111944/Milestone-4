@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Brand(models.Model):
-
+    
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
@@ -17,6 +17,10 @@ class Brand(models.Model):
 
 
 class Watch(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Watches'
+
     sku = models.CharField(max_length=254, null=True, blank=True)
     brand = models.ForeignKey(
         'Brand', null=True, blank=True, on_delete=models.SET_NULL)
