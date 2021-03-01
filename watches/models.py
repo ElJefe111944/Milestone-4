@@ -2,6 +2,12 @@ from django.db import models
 
 # Create your models here.
 
+LABEL = (
+    ('P', 'PRIMARY'),
+    ('S', 'SECONDARY'),
+    ('D', 'DANGER'),
+)
+
 
 class Brand(models.Model):
     
@@ -28,6 +34,7 @@ class Watch(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     discount = models.FloatField(blank=True, null=True)
+    label = models.CharField(choices=LABEL, max_length=20, default='SOME STRING')
     rating = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
