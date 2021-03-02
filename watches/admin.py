@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Watch, Brand
+from .models import Watch, Brand, Category
 
 # Register your models here.
 
@@ -24,6 +24,12 @@ class BrandAdmin(admin.ModelAdmin):
         'image',
     )
 
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = (
+        'friendly_name',
+        'name',    
+    )
 
 admin.site.register(Watch, WatchAdmin)
 admin.site.register(Brand, BrandAdmin)
+admin.site.register(Category, CategoryAdmin)
