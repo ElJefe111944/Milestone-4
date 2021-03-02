@@ -14,7 +14,7 @@ class WatchAdmin(admin.ModelAdmin):
         'image',
     )
 
-    ordering = ('sku')
+    ordering = ('sku',)
     
 
 class BrandAdmin(admin.ModelAdmin):
