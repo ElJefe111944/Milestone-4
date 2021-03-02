@@ -133,9 +133,9 @@
                     <div class="product text-center">
                       <div class="mb-3 position-relative">
                          {% if watch.image %}
-                            <div class="badge text-white badge-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100 h-100" src="{{ watch.image.url }}" alt="{{ watch.name }}"></a>
+                            <div class="badge text-white badge-"></div><a class="d-block" href="{% url 'watch_detail' watch.id %}"><img class="img-fluid w-100 h-100" src="{{ watch.image.url }}" alt="{{ watch.name }}"></a>
                         {% else %}
-                            <div class="badge text-white badge-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100 h-100" src="{{ watch.image.url }}" alt="{{ watch.name }}"></a>
+                            <div class="badge text-white badge-"></div><a class="d-block" href="{% url 'watch_detail' watch.id %}"><img class="img-fluid w-100 h-100" src="{{ watch.image.url }}" alt="{{ watch.name }}"></a>
                         {% endif %}
                         <div class="product-overlay">
                           <ul class="mb-0 list-inline">
