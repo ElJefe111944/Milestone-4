@@ -13,6 +13,8 @@ class WatchAdmin(admin.ModelAdmin):
         'rating',
         'image',
     )
+
+    ordering = ('sku')
     
 
 class BrandAdmin(admin.ModelAdmin):
