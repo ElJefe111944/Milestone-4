@@ -9,9 +9,14 @@
             <li class="nav-item">
                 <!-- Link--><a class="nav-link active" href="{% url 'homepage' %}">Home</a>
             </li>
-            <li class="nav-item">
-                <!-- Link--><a class="nav-link" href="{% url 'watches' %}">Watches</a>
-            </li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Watches</a>
+                <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown">
+                        <a class="dropdown-item border-0 transition-link" href="{% url 'watches' %}?sort=price&direction=asc">By Price</a>
+                        <a class="dropdown-item border-0 transition-link" href="{% url 'watches' %}?sort=category&direction=asc">By Brand</a>
+                        <a class="dropdown-item border-0 transition-link" href="{% url 'watches' %}">All Watches</a>
+                </div>
+            </li>   
             <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">Categories</a>
                 <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown">
