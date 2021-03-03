@@ -175,6 +175,16 @@
                                 <h6> <a class="reset-anchor" href="detail.html">{{ watch.name }}</a></h6>
                                 <h5 class="text-muted"> <a class="reset-anchor" href="detail.html">{{ watch.brand.friendly_name }}</a></h5>
                                 <p class="small text-muted">${{ watch.price }}</p>
+                                                        <!-- Rating -->                       
+                        <ul class="list-inline mb-2">
+                            {% if watches.rating %}
+                            <li class="list-inline-item m-0 text-muted"><i class="fas fa-star small text-warning"> {{ watches.rating }} / 10</i></li>
+                            {% else %}
+                                <li class="list-inline-item m-0"><i class="fas fa-star small text-danger"> No Rating</i>
+                            {% endif %}
+                            </li>                        
+                        </ul>
+                        <!--end of Rating  -->
                             </div>
                         </div>
                         {% endfor %}
