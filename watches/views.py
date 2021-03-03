@@ -15,8 +15,8 @@ def all_watches(request):
 
     if request.GET:
         if 'category' in request.GET:
-            categories = request.GET['cateory'].split(',')
-            watches = watches.filter(cateory__name__in=categories)
+            categories = request.GET['category'].split(',')
+            watches = watches.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
         if 'q' in request.GET:
