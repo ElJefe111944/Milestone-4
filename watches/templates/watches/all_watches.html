@@ -157,6 +157,7 @@
                                         href="{% url 'watch_detail' watch.id %}"><img class="img-fluid w-100 h-100"
                                             src="{{ watch.image.url }}" alt="{{ watch.name }}"></a>
                                     {% endif %}
+                                    <!-- DISPLAYED ON HOVER  -->
                                     <div class="product-overlay">
                                         <ul class="mb-0 list-inline">
                                             <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark"
@@ -168,8 +169,10 @@
                                                         class="fas fa-expand"></i></a></li>
                                         </ul>
                                     </div>
+                                    <!-- END OF DISPLAYED ON HOVER  -->
                                 </div>
                                 <h6> <a class="reset-anchor" href="detail.html">{{ watch.name }}</a></h6>
+                                <h5 class="text-muted"> <a class="reset-anchor" href="detail.html">{{ watch.brand.friendly_name }}</a></h5>
                                 <p class="small text-muted">${{ watch.price }}</p>
                             </div>
                         </div>
