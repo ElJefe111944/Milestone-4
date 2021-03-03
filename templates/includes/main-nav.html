@@ -14,16 +14,11 @@
             </li>
             <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">Categories</a>
-                <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown"><a
-                        class="dropdown-item border-0 transition-link" href="{% url 'homepage' %}">Homepage</a><a
-                        class="dropdown-item border-0 transition-link" href="#">Category</a><a
-                        class="dropdown-item border-0 transition-link" href="#">Product
-                        detail</a><a class="dropdown-item border-0 transition-link" href="#">Shopping cart</a><a
-                        class="dropdown-item border-0 transition-link" href="#">Checkout</a></div>
-            </li>
-            <li class="nav-item">
-              
-            </li>
+                <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown">
+                        <a class="dropdown-item border-0 transition-link" href="{% url 'watches'?category=men %}">Men's Watches</a>
+                        <a class="dropdown-item border-0 transition-link" href="{% url 'watches'?category=women %}">Women's Watches</a>
+                </div>
+            </li>            
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
