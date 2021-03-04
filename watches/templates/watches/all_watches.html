@@ -5,16 +5,6 @@
 <div class="container">
     <!-- HERO SECTION-->
     <section class="py-5 bg-light">
-        <!-- SEARCH BAR -->
-        <form class="col-lg-6 offset-lg-3" method="GET" action="{% url 'watches' %}">
-            <div class="row justify-content-center m-3">
-                <input type="text" placeholder="Search" name="q">
-                <span class="input-group-btn">
-                    <button class="btn btn-primary border border-dark ml-1"><i class="fas fa-search"></i></button>
-                </span>
-            </div>
-        </form>
-        <!-- END OF SEARCH BAR -->
         <div class="row px-4 px-lg-5 py-lg-4 align-items-center">
             <div class="col-lg-6">
                 <h1 class="h2 text-uppercase mb-0">All Watches</h1>
@@ -175,7 +165,10 @@
                             <h6> <a class="reset-anchor" href="detail.html">{{ watch.name }}</a></h6>
                             <h5 class="text-muted"> <a class="reset-anchor"
                                     href="detail.html">{{ watch.brand.friendly_name }}</a></h5>
-                            <p class="small text-muted">${{ watch.price }}</p>
+                            <p class="text-muted my-0">${{ watch.price }}</p>
+                            <p class="small text-muted my-1">Category: 
+                                <a class="reset-anchor ml-2" href="{% url 'watches' %}?category={{ watch.category.name }}">{{ watch.category.friendly_name }}</a>
+                            </p>
                             <!-- Rating -->
                             <ul class="list-inline mb-2">
                                 {% if watch.rating %}
