@@ -18,6 +18,20 @@
                 </nav>
             </div>
         </div>
+        <!-- Category Options Btns -->
+        <div class="row">
+            <div class="col text-center">
+                {% for c in current_categories %}
+                <a href="{% url 'watches' %}?category={{ c.name }}">
+                    <button type="button" class="btn btn-outline-dark">{{ c.friendly_name }}</button>
+                </a>
+                {% endfor %}
+                <a href="{% url 'watches' %}?category=men,women">
+                    <button type="button" class="btn btn-outline-dark">All Watches</button>
+                </a>
+            </div>
+        </div>
+        <!-- End of Category Options Btns -->
     </section>
 </div>
 <section class="py-5">
