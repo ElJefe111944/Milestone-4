@@ -122,12 +122,14 @@
                     <label class="custom-control-label text-small" for="customRadio4">Buy It Now</label>
                 </div>
             </div>
-            <!-- SHOP LISTING-->
+            <!-- Search Results-->
             <div class="col-lg-9 order-1 order-lg-2 mb-5 mb-lg-0">
                 <div class="row mb-3 align-items-center">
                     <div class="col-lg-6 mb-2 mb-lg-0">
-                 
-                        <p class="text-small text-muted mb-0">Showing {{ watches|length }} results for {{ search_term }}</p>
+                        {% if search_term or current_categories or current_sorting != 'None_None' %}
+                        <span class="small"><a href="{% url 'watches' %}">See All Watches</a></span>
+                        {% endif %}
+                        <p class="text-small text-muted mb-0">{{ watches|length }} results found.</p>
                     </div>
                       
                     <div class="col-lg-6">
@@ -218,5 +220,30 @@
             </div>
         </div>
     </section>
+{% endblock %}
 
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    $('#sort-selector').change(function(){
+        var selector = $(this);
+        var currentUrl = new URL(window.location);
+
+        var selectedVal = selector.val();
+        if (selectedVal != "reset"){
+            var sort = selectedVal.split("_")[0];
+            var direction = selectedVal.split("_")[1];
+
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
+
+            window.location.replace(currentUrl);
+        } else{
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
+
+            window.location.replace(currentUrl);
+        }
+    })
+</script>
 {% endblock %}
