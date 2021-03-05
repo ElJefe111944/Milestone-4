@@ -26,6 +26,7 @@
         <div class="row">
             <div class="col-lg-8 mb-4 mb-lg-0">
                 <!-- CART TABLE-->
+                {% if shopping_cart_items %}
                 <div class="table-responsive mb-4">
                     <table class="table">
                         <thead class="bg-light">
@@ -105,6 +106,17 @@
                         </tbody>
                     </table>
                 </div>
+                <!-- END OF CART TABLE -->
+                {% else %}
+                <p class="lead mb-5">Your shopping bag is currently empty.</p>
+                    <a href="{% url 'watches' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text-uppercase">Keep Shopping</span>
+                    </a>
+                {% endif %}
+                {% if shopping_cart_items %}
                 <!-- CART NAV-->
                 <div class="bg-light px-4 py-3">
                     <div class="row align-items-center text-center">
@@ -142,6 +154,9 @@
                     </div>
                 </div>
             </div>
+            {% else %}
+            <!-- SUGGESTED ITEMS -->
+            {% endif %}
         </div>
     </section>
 </div>
