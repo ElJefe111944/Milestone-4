@@ -1,5 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
+from django.shortcuts import get_object_or_404
+from watches.models import Watch
 
 
 def shoppingcart_contents(request):
@@ -7,6 +9,17 @@ def shoppingcart_contents(request):
     shoppingcart_items = []
     total = 0
     product_count = 0
+    shoppingcart = request.session.get('shoppingcart', {})
+
+    for item_id, quantity in shoppingcart.items():
+        watch = get_object_or_404(Watch, pk=item_id)
+        total += quantity * watch.price
+        product_count += quantity
+        shoppingcart_items.append({
+            'item_id': item_id, 
+            'quantity': quantity,
+            'watch': watch,
+        })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)

@@ -26,9 +26,10 @@
         <div class="row">
             <div class="col-lg-8 mb-4 mb-lg-0">
                 <!-- CART TABLE-->
-                {% if shopping_cart_items %}
-                <div class="table-responsive mb-4">
-                    <table class="table">
+                {% if shoppingcart_items %}
+                    {{ shoppingcart_items }}
+                 <div class="table-responsive mb-4">
+                    <!--<table class="table">
                         <thead class="bg-light">
                             <tr>
                                 <th class="border-0" scope="col"> <strong
@@ -104,8 +105,8 @@
                                             class="fas fa-trash-alt small text-muted"></i></a></td>
                             </tr>
                         </tbody>
-                    </table>
-                </div>
+                    </table> -->
+                </div> 
                 <!-- END OF CART TABLE -->
                 {% else %}
                 <p class="lead mb-5">Your shopping bag is currently empty.</p>
@@ -116,7 +117,7 @@
                         <span class="text-uppercase">Keep Shopping</span>
                     </a>
                 {% endif %}
-                {% if shopping_cart_items %}
+                {% if shoppingcart_items %}
                 <!-- CART NAV-->
                 <div class="bg-light px-4 py-3">
                     <div class="row align-items-center text-center">
