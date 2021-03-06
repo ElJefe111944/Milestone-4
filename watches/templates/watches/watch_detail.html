@@ -61,16 +61,18 @@
                         <form class="form" action="{% url 'add_to_shoppingcart' watch.id %}" method="POST">
                             {% csrf_token %}
                             <div class="row align-items-stretch mb-4">
+                                <!-- QUANTITY SELECTOR -->
                                 <div class="col-sm-5 pr-sm-0">                        
                                     <div class="border d-flex align-items-center justify-content-between py-1 px-3 bg-white border-white">
                                         <span class="small text-uppercase text-gray mr-4 no-select">Quantity</span>
                                         <div class="quantity">
-                                            <button class="dec-btn p-0"><i class="fas fa-caret-left"></i></button>
-                                            <input class="form-control border-0 shadow-0 p-0" type="number" value="1" max="99" name="quantity" data-item_id="{{ watch.id }}" id="{{ watch.id }}">
-                                            <button class="inc-btn p-0"><i class="fas fa-caret-right"></i></button>
+                                            <button class="dec-btn p-0 decrement-qty" data-item_id="{{ watch.id }}" id="decrement-qty_{{ watch.id }}"><i class="fas fa-caret-left"></i></button>
+                                            <input class="form-control qty_input border-0 shadow-0 p-0" type="number" value="1" min="1" max="99" name="quantity" data-item_id="{{ watch.id }}" id="id_qty_{{ watch.id }}">
+                                            <button class="inc-btn p-0 increment-qty"  data-item_id="{{ watch.id }}" id="increment-qty_{{ watch.id }}"><i class="fas fa-caret-right"></i></button>
                                         </div>
                                     </div>                        
-                                </div>                        
+                                </div>
+                                <!-- END OF QUANTITY SELECTOR -->                        
                                 <div class="col-sm-3 pl-sm-0">                                    
                                       <input type="submit" class="btn btn-dark btn-sm btn-block h-100 d-flex align-items-center justify-content-center px-0" value="Add to Bag">
                                 </div>
@@ -267,6 +269,9 @@
     </div>
 </div>
 
-
-
 {% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+    <script src="{% static 'watches/js/quantity_input.js' %}"></script>
+{% endblock %} 
