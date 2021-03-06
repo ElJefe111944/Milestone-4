@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load shoppingcart_tools %}
 
 {% block content %}
 <div class="container">
@@ -62,7 +63,7 @@
                                 </td>
                                 <!-- QUANTITY SELECTOR -->
                                 <td class="align-middle border-0">
-                                    <form class="form update-form" method="POST" action="">
+                                    <form class="form update-form" method="POST" action="{% url 'update_shoppingcart' item.item_id %}">
                                         {% csrf_token %}
                                         <div class="border d-flex align-items-center justify-content-between px-3"><span
                                                 class="small text-uppercase text-gray headings-font-family">Quantity</span>
@@ -125,10 +126,10 @@
                         <ul class="list-unstyled mb-0">
                             <li class="d-flex align-items-center justify-content-between"><strong
                                     class="text-uppercase small font-weight-bold">Subtotal</strong><span
-                                    class="text-muted small">$250</span></li>
+                                    class="text-muted small">£{{ item.watch.price }}</span></li>
                             <li class="border-bottom my-2"></li>
                             <li class="d-flex align-items-center justify-content-between mb-4"><strong
-                                    class="text-uppercase small font-weight-bold">Total</strong><span>$250</span></li>
+                                    class="text-uppercase small font-weight-bold">Total</strong><span>£{{ grand_total }}</span></li>
                             <li>
                                 <form action="#">
                                     <div class="form-group mb-0">
@@ -182,4 +183,20 @@
 {{ block.super }}
     <script src="{% static 'watches/js/quantity_input.js' %}"></script>
     <script src="{% static 'shoppingcart/js/quantity_modify.js' %}"></script>
+    <script>
+        // Remove item and reload on click
+        $('.remove-item').click(function (e) {
+            var csrfToken = "{{ csrf_token }}";
+            var itemId = $(this).attr('id').split('remove_')[1];
+            var url = `/shoppingcart/remove/${itemId}/`;
+            var data = { 'csrfmiddlewaretoken': csrfToken };
+
+
+            $.post(url, data)
+                .done(function () {
+                    location.reload();
+                });
+        })
+    </script>
+
 {% endblock %}
