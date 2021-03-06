@@ -129,7 +129,7 @@
                                     class="text-muted small">£{{ item.watch.price }}</span></li>
                             <li class="border-bottom my-2"></li>
                             <li class="d-flex align-items-center justify-content-between mb-4"><strong
-                                    class="text-uppercase small font-weight-bold">Total</strong><span>£{{ grand_total }}</span></li>
+                                    class="text-uppercase small font-weight-bold">Total</strong><span>£{{ grand_total|floatformat:2 }}</span></li>
                             <li>
                                 <form action="#">
                                     <div class="form-group mb-0">
