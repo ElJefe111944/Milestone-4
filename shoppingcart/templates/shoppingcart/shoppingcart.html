@@ -63,6 +63,7 @@
                                 <!-- QUANTITY SELECTOR -->
                                 <td class="align-middle border-0">
                                     <form class="form update-form" method="POST" action="">
+                                        {% csrf_token %}
                                         <div class="border d-flex align-items-center justify-content-between px-3"><span
                                                 class="small text-uppercase text-gray headings-font-family">Quantity</span>
                                             <div class="quantity">
@@ -84,7 +85,7 @@
                                 </td>
                                 <td class="align-middle border-0">
                                     <!--REMOVE BTN  -->
-                                    <a class="reset-anchor" id="remove_{{ item.item_id }}">
+                                    <a class="reset-anchor remove-item" id="remove_{{ item.item_id }}">
                                         <i class="fas fa-trash-alt small text-muted"></i>
                                     </a>
                                 </td>
@@ -180,4 +181,5 @@
 {% block postloadjs %}
 {{ block.super }}
     <script src="{% static 'watches/js/quantity_input.js' %}"></script>
-{% endblock %} 
+    <script src="{% static 'shoppingcart/js/quantity_modify.js' %}"></script>
+{% endblock %}
