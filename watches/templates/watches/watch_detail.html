@@ -67,7 +67,7 @@
                                         <span class="small text-uppercase text-gray mr-4 no-select">Quantity</span>
                                         <div class="quantity">
                                             <button class="dec-btn p-0 decrement-qty" data-item_id="{{ watch.id }}" id="decrement-qty_{{ watch.id }}"><i class="fas fa-caret-left"></i></button>
-                                            <input class="form-control qty_input border-0 shadow-0 p-0" type="number" value="1" min="1" max="99" name="quantity" data-item_id="{{ watch.id }}" id="id_qty_{{ watch.id }}">
+                                            <input class="form-control qty_input border-0 shadow-0 p-0" type="number" value="{{ item.quantity }}" min="1" max="99" name="quantity" data-item_id="{{ watch.id }}" id="id_qty_{{ watch.id }}">
                                             <button class="inc-btn p-0 increment-qty"  data-item_id="{{ watch.id }}" id="increment-qty_{{ watch.id }}"><i class="fas fa-caret-right"></i></button>
                                         </div>
                                     </div>                        

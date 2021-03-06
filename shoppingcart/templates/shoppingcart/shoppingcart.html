@@ -58,24 +58,36 @@
                                     </div>
                                 </th>
                                 <td class="align-middle border-0">
-                                    <p class="mb-0 small">${{ item.watch.price }}</p>
+                                    <p class="mb-0 small">£{{ item.watch.price }}</p>
                                 </td>
+                                <!-- QUANTITY SELECTOR -->
                                 <td class="align-middle border-0">
-                                    <div class="border d-flex align-items-center justify-content-between px-3"><span
-                                            class="small text-uppercase text-gray headings-font-family">Quantity</span>
-                                        <div class="quantity">
-                                            <button class="dec-btn p-0"><i class="fas fa-caret-left"></i></button>
-                                            <input class="form-control form-control-sm border-0 shadow-0 p-0"
-                                                type="text" value="{{ item.quantity }}" />
-                                            <button class="inc-btn p-0"><i class="fas fa-caret-right"></i></button>
+                                    <form class="form update-form" method="POST" action="">
+                                        <div class="border d-flex align-items-center justify-content-between px-3"><span
+                                                class="small text-uppercase text-gray headings-font-family">Quantity</span>
+                                            <div class="quantity">
+                                                <button class="dec-btn p-0 decrement-qty" data-item_id="{{ item.item.id }}"
+                                                    id="decrement-qty_{{ item.item.id }}"><i class="fas fa-caret-left"></i></button>
+                                                <input class="form-control qty_input border-0 shadow-0 p-0" type="number" value="{{ item.quantity }}"
+                                                    min="1" max="99" name="quantity" data-item_id="{{ item.item.id }}" id="id_qty_{{ item.item.id }}">
+                                                <button class="inc-btn p-0 increment-qty" data-item_id="{{ item.item.id }}"
+                                                    id="increment-qty_{{ item.item.id }}"><i class="fas fa-caret-right"></i></button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
+                                    <!-- UPDATE BTN -->
+                                     <a class="update-link text-info"><small>Update</small></a>
                                 </td>
+                                 <!-- END OF QUANTITY SELECTOR -->
                                 <td class="align-middle border-0">
                                     <p class="mb-0 small">£{{ item.watch.price }}</p>
                                 </td>
-                                <td class="align-middle border-0"><a class="reset-anchor" href="#"><i
-                                            class="fas fa-trash-alt small text-muted"></i></a></td>
+                                <td class="align-middle border-0">
+                                    <!--REMOVE BTN  -->
+                                    <a class="reset-anchor" id="remove_{{ item.item_id }}">
+                                        <i class="fas fa-trash-alt small text-muted"></i>
+                                    </a>
+                                </td>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -164,3 +176,8 @@
 
 
 {% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+    <script src="{% static 'watches/js/quantity_input.js' %}"></script>
+{% endblock %} 

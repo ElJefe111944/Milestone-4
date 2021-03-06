@@ -1111,10 +1111,15 @@ a.text-hover-dark:focus, a.text-hover-dark:hover {
 .reset-anchor {
   color: inherit;
   transition: all 0.3s;
+  cursor: pointer;
 }
 
 .reset-anchor:hover, .reset-anchor:focus {
   text-decoration: none;
+}
+
+.fa-trash-alt:hover {
+    color: red !important;
 }
 
 .index-forward {
@@ -2261,6 +2266,10 @@ STYLE SWITCHER FOR DEMO
   font-size: 0.875rem;
   line-height: 1.5;
   border-radius: 0;
+}
+
+.update-link {
+    cursor: pointer;
 }
 
 /*
