@@ -1,6 +1,9 @@
 from django.shortcuts import (
     render, redirect, reverse, get_object_or_404, HttpResponse)
+from django.contrib import messages
+
 from watches.models import Watch
+
 # Create your views here.
 
 
@@ -13,6 +16,7 @@ def view_shoppingcart(request):
 def add_to_shoppingcart(request, item_id):
     """ Add a quantity of a specified product to the shopping bag """
 
+    watch = Watch.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     shoppingcart = request.session.get('shoppingcart', {})
@@ -21,6 +25,7 @@ def add_to_shoppingcart(request, item_id):
         shoppingcart[item_id] += quantity
     else:
         shoppingcart[item_id] = quantity
+        messages.success(request, f'Added {watch.name} to the shopping cart')
 
     request.session['shoppingcart'] = shoppingcart
     return redirect(redirect_url)
