@@ -3,10 +3,12 @@ from django.contrib import messages
 
 from .forms import OrderForm
 
+
 def checkout(request):
     shoppingcart = request.session.get('shoppingcart', {})
     if not shoppingcart:
-        messages.error(request, "There is nothing currently in your shopping bag")
+        messages.error(
+            request, "There is nothing currently in your shopping bag")
         return redirect(reverse('watches'))
     
     order_form = OrderForm()
