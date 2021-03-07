@@ -3460,3 +3460,9 @@ code {
     right: 15px;
     z-index: 99999999;
 }
+
+.shoppingcart-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
