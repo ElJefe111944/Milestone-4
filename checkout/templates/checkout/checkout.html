@@ -28,146 +28,114 @@
         <h2 class="h5 text-uppercase mb-4">Billing details</h2>
         <div class="row">
             <div class="col-lg-8">
+                <!-- CHECKOUT FORM -->
                 <form action="#">
                     <div class="row">
                         <div class="col-lg-6 form-group">
                             <label class="text-small text-uppercase" for="firstName">First name</label>
-                            <input class="form-control form-control-lg" id="firstName" type="text"
-                                placeholder="Enter your first name">
+                                {{ order_form.first_name | as_crispy_field }}
                         </div>
                         <div class="col-lg-6 form-group">
                             <label class="text-small text-uppercase" for="lastName">Last name</label>
-                            <input class="form-control form-control-lg" id="lastName" type="text"
-                                placeholder="Enter your last name">
+                                {{ order_form.last_name | as_crispy_field }}
                         </div>
                         <div class="col-lg-6 form-group">
                             <label class="text-small text-uppercase" for="email">Email address</label>
-                            <input class="form-control form-control-lg" id="email" type="email"
-                                placeholder="e.g. Jason@example.com">
+                                {{ order_form.email | as_crispy_field }}
                         </div>
                         <div class="col-lg-6 form-group">
                             <label class="text-small text-uppercase" for="phone">Phone number</label>
-                            <input class="form-control form-control-lg" id="phone" type="tel"
-                                placeholder="e.g. +02 245354745">
-                        </div>
-                        <div class="col-lg-6 form-group">
-                            <label class="text-small text-uppercase" for="company">Company name (optional)</label>
-                            <input class="form-control form-control-lg" id="company" type="text"
-                                placeholder="Your company name">
+                                {{ order_form.phone_number | as_crispy_field }}
                         </div>
                         <div class="col-lg-6 form-group">
                             <label class="text-small text-uppercase" for="country">Country</label>
-                            <select class="selectpicker country" id="country" data-width="fit"
-                                data-style="form-control form-control-lg" data-title="Select your country"></select>
-                        </div>
-                        <div class="col-lg-12 form-group">
-                            <label class="text-small text-uppercase" for="address">Address line 1</label>
-                            <input class="form-control form-control-lg" id="address" type="text"
-                                placeholder="House number and street name">
-                        </div>
-                        <div class="col-lg-12 form-group">
-                            <label class="text-small text-uppercase" for="address">Address line 2</label>
-                            <input class="form-control form-control-lg" id="addressalt" type="text"
-                                placeholder="Apartment, Suite, Unit, etc (optional)">
+                                {{ order_form.country | as_crispy_field }}
                         </div>
                         <div class="col-lg-6 form-group">
-                            <label class="text-small text-uppercase" for="city">Town/City</label>
-                            <input class="form-control form-control-lg" id="city" type="text">
-                        </div>
-                        <div class="col-lg-6 form-group">
-                            <label class="text-small text-uppercase" for="state">State/County</label>
-                            <input class="form-control form-control-lg" id="state" type="text">
-                        </div>
-                        <div class="col-lg-6 form-group">
-                            <div class="custom-control custom-checkbox">
-                                <input class="custom-control-input" id="alternateAddressCheckbox" type="checkbox">
-                                <label class="custom-control-label text-small" for="alternateAddressCheckbox">Alternate
-                                    billing address</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="row d-none" id="alternateAddress">
-                                <div class="col-12 mt-4">
-                                    <h2 class="h4 text-uppercase mb-4">Alternative billing details</h2>
-                                </div>
-                                <div class="col-lg-6 form-group">
-                                    <label class="text-small text-uppercase" for="firstName2">First name</label>
-                                    <input class="form-control form-control-lg" id="firstName2" type="text"
-                                        placeholder="Enter your first name">
-                                </div>
-                                <div class="col-lg-6 form-group">
-                                    <label class="text-small text-uppercase" for="lastName2">Last name</label>
-                                    <input class="form-control form-control-lg" id="lastName2" type="text"
-                                        placeholder="Enter your last name">
-                                </div>
-                                <div class="col-lg-6 form-group">
-                                    <label class="text-small text-uppercase" for="email2">Email address</label>
-                                    <input class="form-control form-control-lg" id="email2" type="email"
-                                        placeholder="e.g. Jason@example.com">
-                                </div>
-                                <div class="col-lg-6 form-group">
-                                    <label class="text-small text-uppercase" for="phone2">Phone number</label>
-                                    <input class="form-control form-control-lg" id="phone2" type="tel"
-                                        placeholder="e.g. +02 245354745">
-                                </div>
-                                <div class="col-lg-6 form-group">
-                                    <label class="text-small text-uppercase" for="company2">Company name
-                                        (optional)</label>
-                                    <input class="form-control form-control-lg" id="company2" type="text"
-                                        placeholder="Your company name">
-                                </div>
-                                <div class="col-lg-6 form-group">
-                                    <label class="text-small text-uppercase" for="country2">Country</label>
-                                    <select class="selectpicker country" id="country2" data-width="fit"
-                                        data-style="form-control form-control-lg"
-                                        data-title="Select your country"></select>
-                                </div>
-                                <div class="col-lg-12 form-group">
-                                    <label class="text-small text-uppercase" for="address2">Address line 1</label>
-                                    <input class="form-control form-control-lg" id="address2" type="text"
-                                        placeholder="House number and street name">
-                                </div>
-                                <div class="col-lg-12 form-group">
-                                    <label class="text-small text-uppercase" for="address2">Address line 2</label>
-                                    <input class="form-control form-control-lg" id="addressalt2" type="text"
-                                        placeholder="Apartment, Suite, Unit, etc (optional)">
-                                </div>
-                                <div class="col-lg-6 form-group">
-                                    <label class="text-small text-uppercase" for="city3">Town/City</label>
-                                    <input class="form-control form-control-lg" id="city3" type="text">
-                                </div>
-                                <div class="col-lg-6 form-group">
-                                    <label class="text-small text-uppercase" for="state4">State/County</label>
-                                    <input class="form-control form-control-lg" id="state4" type="text">
-                                </div>
-                            </div>
+                            <label class="text-small text-uppercase" for="postcode">Postcode (If applicable)</label>
+                                {{ order_form.postcode | as_crispy_field }}
                         </div>
                         <div class="col-lg-12 form-group">
+                            <label class="text-small text-uppercase" for="address_line1">Address line 1</label>
+                                {{ order_form.address_line1 | as_crispy_field }}
+                        </div>
+                        <div class="col-lg-12 form-group">
+                            <label class="text-small text-uppercase" for="address_line2">Address line 2</label>
+                                {{ order_form.address_line2 | as_crispy_field }}
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label class="text-small text-uppercase" for="town_or_city">Town/City</label>
+                                {{ order_form.town_or_city | as_crispy_field }}
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label class="text-small text-uppercase" for="state_or_county">State/County</label>
+                                {{ order_form.state_or_county | as_crispy_field }}
+                        </div>
+                        <!-- OPTIONN TO SAVE BILLING INFORMATION TO PROFILE -->
+                        <div class="col-lg-6 form-group">
+                             <div class="form-check form-check-inline mr-0">
+							{% if user.is_authenticated %}
+								<label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
+                                <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+							{% else %}
+								<label class="form-check-label" for="id-save-info">
+                                    <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
+                                    <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                                </label>
+							{% endif %}
+                        </div>
+                        <!-- END OF OPTIONN TO SAVE BILLING INFORMATION TO PROFILE -->
+                        <!-- <fieldset class="px-3">
+                            <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                            <!-- A Stripe card element will go here -->
+                            <div class="mb-3" id="card-element"></div>
+                        
+                            <!-- Used to display form errors -->
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                        <!-- </fieldset> -->
+                        </div>                                  
+                        
+                        <div class="col-lg-12 form-group">
+                        <!--BACK TO SHOPPING CART BTN -->
+                        <a href="{% url 'shoppingcart' %}">
+                            <button type="button" class="btn btn-outline-danger">Back to Shopping Cart</button>
+                        </a>  
+                        <!-- PLACE ORDER BTN -->
                             <button class="btn btn-dark" type="submit">Place order</button>
                         </div>
                     </div>
                 </form>
+                <!-- END OF CHECKOUT FORM -->
             </div>
             <!-- ORDER SUMMARY-->
+            {% for item in shoppingcart_items %}
             <div class="col-lg-4">
                 <div class="card border-0 rounded-0 p-lg-4 bg-light">
                     <div class="card-body">
-                        <h5 class="text-uppercase mb-4">Your order</h5>
+                        <h5 class="text-uppercase mb-4">Your order <small class="text-muted">({{ product_count }})</small></h5>
                         <ul class="list-unstyled mb-0">
+                            <li class="d-flex align-items-center justify-content-between">
+                                <div class="m-1 col-3">
+                                    <a href="{% url 'watch_detail' item.watch.id %}">
+                                        {% if item.watch.image %}
+                                        <img class="w-100" src="{{ item.watch.image.url }}" alt="{{ watch.name }}">
+                                        {% else %}
+                                        <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ watch.name }}">
+                                        {% endif %}
+                                    </a>
+                                </div>
+                                <strong class="small font-weight-bold">{{ item.watch.name }}</strong>
+                                <span class="text-muted small">£{{ item.watch.price }}</span>
+                            </li>
+                            <li class="border-bottom my-2"></li>                           
                             <li class="d-flex align-items-center justify-content-between"><strong
-                                    class="small font-weight-bold">Red digital smartwatch</strong><span
-                                    class="text-muted small">$250</span></li>
-                            <li class="border-bottom my-2"></li>
-                            <li class="d-flex align-items-center justify-content-between"><strong
-                                    class="small font-weight-bold">Gray Nike running shoes</strong><span
-                                    class="text-muted small">$351</span></li>
-                            <li class="border-bottom my-2"></li>
-                            <li class="d-flex align-items-center justify-content-between"><strong
-                                    class="text-uppercase small font-weight-bold">Total</strong><span>$601</span></li>
+                                    class="text-uppercase small font-weight-bold">Total</strong><span>£{{ grand_total }}</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
+            {% endfor %}
+            <!-- END OF ORDER SUMMARY-->
         </div>
     </section>
 </div>
