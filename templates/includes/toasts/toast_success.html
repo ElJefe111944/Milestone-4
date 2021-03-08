@@ -1,6 +1,6 @@
 <div class="toast" data-autohide="false">
     <div class="toast-header">
-        <img src="..." class="rounded me-2" alt="...">
+        <i class="fas fa-smile text-success m-1"></i>
         <strong class="mr-auto text-success">Success</strong>
         <button type="button" class="close ml-2 mb-1" data-dismiss="toast" aria-label="Close"><span
                 aria-hidden="true">&times;</span></button>
@@ -40,7 +40,7 @@
                 Spend <strong>${{ free_delivery_delta }}</strong> more to get free next day delivery!
             </p>
             {% endif %}
-            <a href="{% url 'shoppingcart' %}" class="btn btn-black bg-dark text-white btn-block rounded-0">
+            <a href="{% url 'checkout' %}" class="btn btn-black bg-dark text-white btn-block rounded-0">
                 <span class="text-uppercase">Go To Secure Checkout</span>
                 <span class="icon">
                     <i class="fas fa-lock"></i>
