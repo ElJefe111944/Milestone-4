@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load shoppingcart_tools %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
@@ -12,7 +13,7 @@
         <div class="container">
             <div class="row px-4 px-lg-5 py-lg-4 align-items-center">
                 <div class="col-lg-6">
-                    <h1 class="h2 text-uppercase mb-0">Thank You</h1>
+                    <h1 class="h2 text-uppercase mb-0">Payment successful</h1>
                 </div>
                 <div class="col-lg-6 text-lg-right">
                     <nav aria-label="breadcrumb">
@@ -28,7 +29,9 @@
     </section>
     <section class="py-5">
         <!-- BILLING ADDRESS-->
-        <h2 class="h5 text-uppercase mb-4">Billing details</h2>
+        <div class="row">
+            <h2 class="h5 text-uppercase mb-4">Thank You</h2>
+        </div>
         <div class="row">
             <p class="text-muted">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
             <!-- ORDER SUMMARY-->
@@ -36,7 +39,7 @@
             <div class="col-lg-4">
                 <div class="card border-0 rounded-0 p-lg-4 bg-light">
                     <div class="card-body">
-                        <h5 class="text-uppercase mb-4">Your order <small class="text-muted">({{ product_count }})</small></h5>
+                        <h5 class="text-uppercase mb-4">Order Summary <small class="text-muted">({{ product_count }})</small></h5>
                         <ul class="list-unstyled mb-0">
                             <li class="d-flex align-items-center justify-content-between">
                                 <div class="m-1 col-3">
