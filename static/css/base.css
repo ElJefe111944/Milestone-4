@@ -29,6 +29,10 @@ button:focus, button:active {
   outline: none;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 /*
 *
 * ==========================================
@@ -1456,7 +1460,8 @@ STYLE SWITCHER FOR DEMO
     11 - MODALS
     12 - BREADCRUMB
     13 - Messages
-    14. STRIPE & CHECKOUT TEMPLATE
+    14 - STRIPE & CHECKOUT TEMPLATE
+    15 - Preloader 
 
 */
 /*
@@ -3509,4 +3514,32 @@ code {
 .fieldset-label {
     position: relative;
     right: 0.5rem;
+}
+/*
+* 15 - Preloader
+*/
+#loading-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(4 4 4 / 85%);
+    z-index: 9999;
+}
+
+.pre-loader {
+    height: 100%;  
+    position: absolute;
+    top: 50%;
+    right: 50%;
+}
+
+
+.spinner-border {
+    margin: 0;
+    height: 100%;
+    text-align: center;
+    color: #fafafa;
 }

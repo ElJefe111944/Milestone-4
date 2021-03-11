@@ -2,11 +2,9 @@
 {% load static %}
 {% load shoppingcart_tools %}
 
-{% block extra_css %}
-    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
-{% endblock %}
 
 {% block content %}
+<div class="overlay"></div>
 <div class="container">
     <!-- HERO SECTION-->
     <section class="py-5 bg-light">
@@ -152,6 +150,13 @@
             <!-- END OF ORDER SUMMARY-->
         </div>
     </section>
+</div>
+<div class="overlay" id="loading-overlay">
+<div class="d-flex justify-content-center text-center pre-loader">
+  <div class="spinner-border" role="status"  style="width: 3rem; height: 3rem;">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
 </div>
 
 {% endblock %}

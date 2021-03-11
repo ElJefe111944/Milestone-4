@@ -2,11 +2,8 @@
 {% load static %}
 {% load shoppingcart_tools %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
-{% endblock %}
-
 {% block content %}
+<div class="overlay"></div>
 <div class="container">
     <!-- HERO SECTION-->
     <section class="py-5 bg-light">
@@ -171,9 +168,7 @@
                         <!-- END OF BILLING SUMMARY INFORMATION -->
                     </div>
                 </div>
-
             </div>
-
         </div>
     </section>
 </div>
