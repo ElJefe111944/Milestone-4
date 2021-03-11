@@ -28,50 +28,109 @@
         </div>
     </section>
     <section class="py-5">
-        <!-- BILLING ADDRESS-->
+        <!-- CONFIRMATION  MESSAGES -->
         <div class="row">
             <h2 class="h5 text-uppercase mb-4">Thank You</h2>
         </div>
         <div class="row">
             <p class="text-muted">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
-            <!-- ORDER SUMMARY-->
-            {% for item in shoppingcart_items %}
+            <!-- END OF CONFIRMATION  MESSAGES -->
+            <!-- ORDER SUMMARY INFORMATION -->            
             <div class="col-lg-4">
                 <div class="card border-0 rounded-0 p-lg-4 bg-light">
                     <div class="card-body">
-                        <h5 class="text-uppercase mb-4">Order Summary <small class="text-muted">({{ product_count }})</small></h5>
+                        <h5 class="text-uppercase mb-4">Order Information:</h5>
                         <ul class="list-unstyled mb-0">
                             <li class="d-flex align-items-center justify-content-between">
-                                <div class="m-1 col-3">
-                                    <a href="{% url 'watch_detail' item.watch.id %}">
-                                        {% if item.watch.image %}
-                                        <img class="w-100" src="{{ item.watch.image.url }}" alt="{{ watch.name }}">
-                                        {% else %}
-                                        <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ watch.name }}">
-                                        {% endif %}
-                                    </a>
-                                </div>
-                                <strong class="small font-weight-bold">{{ item.watch.name }}</strong>
-                                <span class="text-muted small">Qty: {{ item.quantity }}</span>
+                                <strong class="small font-weight-bold text-uppercase">Order Number</strong>
+                                <span class="text-muted small">{{ order.order_number }}</span>
                             </li>
                             <li class="border-bottom my-2"></li>
                             <li class="d-flex align-items-center justify-content-between">
-                                <strong class="text-uppercase small font-weight-bold">Subtotal</strong><span>£{{ item.watch.price | calc_subtotal:item.quantity }}</span>
-                            </li>
-                            <li class="border-bottom my-2"></li>                           
-                            <li class="d-flex align-items-center justify-content-between">
-                                <strong class="text-uppercase small font-weight-bold">Delivery</strong><span>£{{ delivery |floatformat:2 }}</span>
-                            </li>
-                            <li class="border-bottom my-2"></li>                           
-                            <li class="d-flex align-items-center justify-content-between">
-                                <strong class="text-uppercase small font-weight-bold">Total</strong><span>£{{ grand_total|floatformat:2 }}</span>
+                                <strong class="text-uppercase small font-weight-bold">Order Date:</strong>
+                                <span class="text-muted small">{{ order.date }}</span>
                             </li>
                         </ul>
+                        <!-- END OF ORDER SUMMARY INFORMATION --> 
+                        <!-- ORDER DETAILS -->       
+                             <h5 class="text-uppercase mb-4">Order Details:</h5>
+                             {% for item in order.lineitems.all %}
+                            <ul class="list-unstyled mb-0">                                
+                                <li class="d-flex align-items-center justify-content-between">
+                                    <strong class="text-uppercase small font-weight-bold">Watch Model:</strong>
+                                    <span class="text-muted small">{{ item.watch.name }}</span>
+                                </li>
+                                <li class="border-bottom my-2"></li>
+                                <li class="d-flex align-items-center justify-content-between">
+                                    <strong class="text-uppercase small font-weight-bold">Quantity & Price:</strong>
+                                    <span class="text-muted small">{{ item.quantity }} @ £ {{ item.watch.price }} each</span>
+                                </li>
+                            </ul>
+                            {% endfor %}
+                            <!-- DELIVERY SUMMARY INFORMATION -->  
+                            <h5 class="text-uppercase mb-4">Delivery Details:</h5>
+                            <!-- END OF DELIVERY SUMMARY INFORMATION -->
+                            <ul class="list-unstyled mb-0">
+                                <li class="d-flex align-items-center justify-content-between">
+                                    <strong class="text-uppercase small font-weight-bold">First Name:</strong>
+                                    <span class="text-muted small">{{ order.first_name }}</span>
+                                </li>
+                                <li class="border-bottom my-2"></li> 
+                                <li class="d-flex align-items-center justify-content-between">
+                                    <strong class="text-uppercase small font-weight-bold">Last Name:</strong>
+                                    <span class="text-muted small">{{ order.last_name }}</span>
+                                </li>
+                                    <li class="border-bottom my-2"></li> 
+                                <li class="d-flex align-items-center justify-content-between">
+                                    <strong class="text-uppercase small font-weight-bold">Phone Number:</strong>
+                                    <span class="text-muted small">{{ order.phone_number }}</span>
+                                </li>
+
+                                <li class="border-bottom my-2"></li>    
+                                <li class="d-flex align-items-center justify-content-between">
+                                    <strong class="text-uppercase small font-weight-bold">Address Line 1:</strong>
+                                    <span class="text-muted small">{{ order.address_line1 }}</span>
+                                </li>
+                                <li class="border-bottom my-2"></li> 
+                                {% if order.address_line2 %}
+                                <li class="d-flex align-items-center justify-content-between">
+                                    <strong class="text-uppercase small font-weight-bold">Address Line 2:</strong>
+                                    <span class="text-muted small">{{ order.address_line2 }}</span>
+                                </li>
+                                <li class="border-bottom my-2"></li> 
+                                {% endif %}
+                                <li class="d-flex align-items-center justify-content-between">
+                                    <strong class="text-uppercase small font-weight-bold">Town/City:</strong>
+                                    <span class="text-muted small">{{ order.town_or_city }}</span>
+                                </li>
+                                <li class="border-bottom my-2"></li>
+                                {% if order.state_or_county %}
+                                <li class="d-flex align-items-center justify-content-between">
+                                    <strong class="text-uppercase small font-weight-bold">State/County:</strong>
+                                    <span class="text-muted small">{{ order.state_or_county }}</span>
+                                </li>
+                                <li class="border-bottom my-2"></li>
+                                {% endif %}
+                                <li class="d-flex align-items-center justify-content-between">
+                                    <strong class="text-uppercase small font-weight-bold">Country:</strong>
+                                    <span class="text-muted small">{{ order.country }}</span>
+                                </li>
+                                {% if order.postcode %}
+                                <li class="border-bottom my-2"></li>
+                                <li class="d-flex align-items-center justify-content-between">
+                                    <strong class="text-uppercase small font-weight-bold">Postcode:</strong>
+                                    <span class="text-muted small">{{ order.postcode }}</span>
+                                </li>
+                                <li class="border-bottom my-2"></li>
+                                {% endif %}
+                            </ul>
+                            <!-- BILLING SUMMARY INFORMATION --> 
+                            
+                            <!-- END OF BILLING SUMMARY INFORMATION --> 
                     </div>
-                </div>
-            </div>
-            {% endfor %}
-            <!-- END OF ORDER SUMMARY-->
+                </div>                
+            </div>                   
+            
         </div>
     </section>
 </div>
