@@ -36,12 +36,8 @@
                     <div class="row">
                         <div class="col-lg-6 form-group">
                             <label class="text-small text-uppercase" for="firstName">First name</label>
-                                {{ order_form.first_name | as_crispy_field }}
-                        </div>
-                        <div class="col-lg-6 form-group">
-                            <label class="text-small text-uppercase" for="lastName">Last name</label>
-                                {{ order_form.last_name | as_crispy_field }}
-                        </div>
+                                {{ order_form.name | as_crispy_field }}
+                        </div>                       
                         <div class="col-lg-6 form-group">
                             <label class="text-small text-uppercase" for="email">Email address</label>
                                 {{ order_form.email | as_crispy_field }}
