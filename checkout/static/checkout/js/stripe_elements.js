@@ -68,31 +68,29 @@ form.addEventListener('submit', function(ev) {
             payment_method: {
                 card: card,
                 billing_details: {
-                    name: $.trim(form.name.value),
-                    last_name: $.trim(form.last_name.value),
+                    name: $.trim(form.name.value),                    
                     phone: $.trim(form.phone_number.value),
                     email: $.trim(form.email.value),
                     address: {
                         line1: $.trim(form.address_line1.value),
                         line2: $.trim(form.address_line1.value),
-                        town_or_city: $.trim(form.town_or_city.value),
+                        city: $.trim(form.town_or_city.value),
                         country: $.trim(form.country.value),
-                        state_or_county: $.trim(form.state_or_county.value)
+                        state: $.trim(form.state_or_county.value)
 
                     }
                 }
             },
             shipping: {
-                name: $.trim(form.name.value),
-                last_name: $.trim(form.last_name.value),
+                name: $.trim(form.name.value),                
                 phone: $.trim(form.phone_number.value),
                 address: {
                     line1: $.trim(form.address_line1.value),
                     line2: $.trim(form.address_line1.value),
-                    town_or_city: $.trim(form.town_or_city.value),
+                    city: $.trim(form.town_or_city.value),
                     country: $.trim(form.country.value),
-                    postcode: $.trim(form.postcode.value),
-                    state_or_county: $.trim(form.state_or_county.value)
+                    postal_code: $.trim(form.postcode.value),
+                    state: $.trim(form.state_or_county.value)
                 }
             },
         }).then(function(result) {
