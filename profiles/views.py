@@ -6,6 +6,6 @@ def profile(request):
     A View to display the 
     User's profile page 
     """
-    template = "profile/profile.html"
+    template = "profiles/profile.html"
     context = {}
     return render(request, template, context)
