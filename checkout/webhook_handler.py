@@ -46,7 +46,7 @@ class StripeWH_Handler:
                 order = Order.objects.get(
                     name__iexact=shipping_details.name,
                     email__iexact=billing_details.email,
-                    phone__iexact=shipping_details.phone,
+                    phone_number__iexact=shipping_details.phone,
                     country__iexact=shipping_details.address.country,
                     postcode__iexact=shipping_details.address.postal_code,
                     town_or_city__iexact=shipping_details.address.city,
@@ -73,7 +73,7 @@ class StripeWH_Handler:
                 order = Order.objects.create(
                     name=shipping_details.name,
                     email=billing_details.email,
-                    phone=shipping_details.phone,
+                    phone_number=shipping_details.phone,
                     country=shipping_details.address.country,
                     postcode=shipping_details.address.postal_code,
                     town_or_city=shipping_details.address.city,
@@ -104,10 +104,10 @@ class StripeWH_Handler:
                 Created order in webhook',
             status=200)   
   
-        def handle_payment_intent_payment_failed(self, event):
-            """
-            Handle the payment_intent.payment_failed webhook from Stripe
-            """
-            return HttpResponse(
-                content=f'Webhook received: {event["type"]}',
-                status=200)
+    def handle_payment_intent_payment_failed(self, event):
+        """
+        Handle the payment_intent.payment_failed webhook from Stripe
+        """
+        return HttpResponse(
+            content=f'Webhook received: {event["type"]}',
+            status=200)
