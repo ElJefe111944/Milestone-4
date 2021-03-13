@@ -42,36 +42,36 @@
                             <label class="text-small text-uppercase" for="email">Email address</label>
                                 {{ order_form.email | as_crispy_field }}
                         </div>
-                        <div class="col-lg-6 form-group">
+                        <div class="col-lg-12 form-group">
                             <label class="text-small text-uppercase" for="phone">Phone number</label>
-                                {{ order_form.phone_number | as_crispy_field }}
+                            {{ order_form.phone_number | as_crispy_field }}
+                        </div>
+                        <div class="col-lg-12 form-group">
+                            <label class="text-small text-uppercase" for="address_line1">Address line 1</label>
+                            {{ order_form.address_line1 | as_crispy_field }}
+                        </div>
+                        <div class="col-lg-12 form-group">
+                            <label class="text-small text-uppercase" for="address_line2">Address line 2</label>
+                            {{ order_form.address_line2 | as_crispy_field }}
+                        </div>   
+                        <div class="col-lg-6 form-group">
+                            <label class="text-small text-uppercase" for="state_or_county">State/County</label>
+                                {{ order_form.state_or_county | as_crispy_field }}
                         </div>
                         <div class="col-lg-6 form-group">
-                            <label class="text-small text-uppercase" for="country">Country</label>
-                                {{ order_form.country | as_crispy_field }}
+                            <label class="text-small text-uppercase" for="town_or_city">Town/City</label>
+                            {{ order_form.town_or_city | as_crispy_field }}
                         </div>
                         <div class="col-lg-6 form-group">
                             <label class="text-small text-uppercase" for="postcode">Postcode (If applicable)</label>
                                 {{ order_form.postcode | as_crispy_field }}
                         </div>
-                        <div class="col-lg-12 form-group">
-                            <label class="text-small text-uppercase" for="address_line1">Address line 1</label>
-                                {{ order_form.address_line1 | as_crispy_field }}
-                        </div>
-                        <div class="col-lg-12 form-group">
-                            <label class="text-small text-uppercase" for="address_line2">Address line 2</label>
-                                {{ order_form.address_line2 | as_crispy_field }}
-                        </div>
                         <div class="col-lg-6 form-group">
-                            <label class="text-small text-uppercase" for="town_or_city">Town/City</label>
-                                {{ order_form.town_or_city | as_crispy_field }}
-                        </div>
-                        <div class="col-lg-6 form-group">
-                            <label class="text-small text-uppercase" for="state_or_county">State/County</label>
-                                {{ order_form.state_or_county | as_crispy_field }}
+                            <label class="text-small text-uppercase" for="country">Country</label>
+                            {{ order_form.country | as_crispy_field }}
                         </div>
                         <!-- OPTIONN TO SAVE BILLING INFORMATION TO PROFILE -->
-                        <div class="col-lg-6 form-group">
+                        <div class="col-lg-12 form-group">
                              <div class="form-check form-check-inline mr-0">
 							{% if user.is_authenticated %}
 								<label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
@@ -84,8 +84,8 @@
 							{% endif %}
                         </div>
                         <!-- END OF OPTIONN TO SAVE BILLING INFORMATION TO PROFILE -->
-                        <fieldset>
-                            <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                        <fieldset style="margin-top: 5px;">
+                            <legend class="fieldset-label small text-black px-2 w-auto">Payment Details:</legend>
                             <!-- A Stripe card element will go here -->
                             <div class="mb-3" id="card-element"></div>
                             <!-- Used to display form errors -->

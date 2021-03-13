@@ -4,6 +4,8 @@ from django.db import models
 from django.db.models import Sum
 from django.conf import settings
 
+from django_countries.fields import CountryField
+
 from watches.models import Watch
 
 # Create your models here.
@@ -14,7 +16,7 @@ class Order(models.Model):
     name = models.CharField(max_length=50, null=False, blank=False)   
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    country = models.CharField(max_length=40, null=False, blank=False)
+    country = CountryField(blank_label="Country *", null=False, blank=False)
     postcode = models.CharField(max_length=20, null=True, blank=True)
     address_line1 = models.CharField(max_length=80, null=False, blank=False)
     address_line2 = models.CharField(max_length=80, null=True, blank=True)
