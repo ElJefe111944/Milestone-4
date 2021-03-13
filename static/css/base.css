@@ -1463,6 +1463,7 @@ STYLE SWITCHER FOR DEMO
     14 - Stripe & Checkout template
     15 - Preloader 
     16 - Allauth Template
+    17 - Profile Template
 
 */
 /*
@@ -3613,4 +3614,26 @@ label.requiredField {
 
 .allauth-form-inner-content a {
 	color: #b5b80f; /* text-info */
+}
+
+/*
+ * 17. Profile Template
+ */
+
+#profile-update-form .form-control {
+    color: #000;
+}
+
+#profile-update-form input::placeholder {
+    color: #aab7c4;
+    border-color: #000;
+}
+
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color: #000;
+}
+
+#id_default_country option:first-child {
+    color: #aab7c4;
 }
