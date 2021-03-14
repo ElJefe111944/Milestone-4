@@ -3641,3 +3641,9 @@ label.requiredField {
 #div_id_default_country label {
     display: none;
 }
+
+/*-- Order History Table --*/
+.order-history {
+    max-height: 416px;
+    overflow-y: auto;
+}
