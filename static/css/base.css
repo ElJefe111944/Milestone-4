@@ -3622,11 +3622,11 @@ label.requiredField {
 
 #profile-update-form .form-control {
     color: #000;
+    border-color: #000;
 }
 
 #profile-update-form input::placeholder {
-    color: #aab7c4;
-    border-color: #000;
+    color: #aab7c4;   
 }
 
 #id_default_country,
