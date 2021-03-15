@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Watch, Category
 from django.db.models.functions import Lower
+
+from .models import Watch, Category
+from .forms import ProductForm
 
 # Create your views here.
 
@@ -69,3 +71,14 @@ def watch_detail(request, watch_id):
     }
    
     return render(request, 'watches/watch_detail.html', context)
+
+
+def add_watch(request):
+    """ Add a product to the store """
+    form = ProductForm()
+    template = 'watches/add_watch.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
