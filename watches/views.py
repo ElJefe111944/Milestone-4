@@ -74,8 +74,19 @@ def watch_detail(request, watch_id):
 
 
 def add_watch(request):
-    """ Add a product to the store """
-    form = ProductForm()
+    """ Add a watch to the store """
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Watch successfully added to store!')
+            return redirect(reverse('add_watch'))
+        else:
+            messages.error(
+                request, 'Failed to add watch as the form is invalid.')
+    else:
+        form = ProductForm()
+    
     template = 'watches/add_watch.html'
     context = {
         'form': form,

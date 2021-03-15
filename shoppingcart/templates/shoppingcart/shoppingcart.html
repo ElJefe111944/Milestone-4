@@ -48,8 +48,12 @@
                             <tr>
                                 <th class="pl-0 border-0" scope="row">
                                     <div class="media align-items-center">
-                                        <a class="reset-anchor d-block animsition-link" href="detail.html"><img
-                                                src="{{ item.watch.image.url }}" alt="..." width="70" />
+                                        <a class="reset-anchor d-block animsition-link" href="detail.html">
+                                            {% if item.watch.image %}
+                                            <img class="img-fluid" src="{{ item.watch.image.url }}" alt="{{ item.watch.name }}">
+                                            {% else %}
+                                            <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.watch.name }}">
+                                            {% endif %}
                                         </a>
                                         <div class="media-body ml-3">
                                             <strong class="h6">

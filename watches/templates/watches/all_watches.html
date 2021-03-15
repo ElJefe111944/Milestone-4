@@ -164,7 +164,7 @@
                                 {% else %}
                                 <div class="badge text-white badge-"></div><a class="d-block"
                                     href="{% url 'watch_detail' watch.id %}"><img class="img-fluid w-100 h-100"
-                                        src="{{ watch.image.url }}" alt="{{ watch.name }}"></a>
+                                        src="{{ MEDIA_URL }}noimage.png" alt="{{ watch.name }}"></a>
                                 {% endif %}
                                 <!-- DISPLAYED ON HOVER  -->
                                 <div class="product-overlay">

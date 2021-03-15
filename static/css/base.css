@@ -3528,9 +3528,6 @@ select option[value=""] {
     color: #a5a7a8!important;
 }
 
-label.requiredField {
-    display: none;
-}
 
 /*
 * 15 - Preloader
@@ -3646,4 +3643,15 @@ label.requiredField {
 .order-history {
     max-height: 416px;
     overflow-y: auto;
+}
+
+/*
+* 18 - Product Management
+*/
+
+/*-- Add Watch --*/
+
+#add-watch-form .form-control {
+    color: #000;
+    border: 1px solid #000;
 }
