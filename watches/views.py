@@ -78,9 +78,9 @@ def add_watch(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            watch = form.save()
             messages.success(request, 'Watch successfully added to store!')
-            return redirect(reverse('add_watch'))
+            return redirect(reverse('watch_detail', args=[watch.id]))
         else:
             messages.error(
                 request, 'Failed to add watch as the form is invalid.')
@@ -103,7 +103,7 @@ def edit_watch(request, watch_id):
         if form.is_valid():
             form.save()
             messages.success(request, f'{watch.name} successfully updated.')
-            return redirect('watch_detail', args=(watch.id))
+            return redirect(reverse('watch_detail', args=[watch.id]))
         else:
             messages.error(request, 'Unable to update item. \
                      Please check that the form is valid')
@@ -118,3 +118,12 @@ def edit_watch(request, watch_id):
     }
 
     return render(request, template, context)
+
+
+def delete_watch(request, watch_id):
+    """ Delete a watch currently in store """
+    watch = get_object_or_404(Watch, pk=watch_id)
+    watch.delete()
+    messages.success(request, 'Watch successfully deleted.')
+
+    return redirect(reverse('all_watches'))
