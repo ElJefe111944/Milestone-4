@@ -3651,7 +3651,7 @@ select option[value=""] {
 
 /*-- Add Watch --*/
 
-#add-watch-form .form-control {
+#watch-form .form-control {
     color: #000;
     border: 1px solid #000;
 }
