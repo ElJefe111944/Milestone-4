@@ -158,11 +158,16 @@
                         <div class="product text-center">
                             <div class="mb-3 position-relative">
                                 {% if watch.image %}
-                                <div class="badge text-white badge-"></div><a class="d-block"
-                                    href="{% url 'watch_detail' watch.id %}"><img class="img-fluid w-100 h-100"
-                                        src="{{ watch.image.url }}" alt="{{ watch.name }}"></a>
+                                    {% if watch.label %}
+                                <div class="badge text-white badge-danger">{{ watch.label }}</div>
+                                    {% else %}
+                                    <div class="badge text-white badge-secondary"></div>
+                                    {% endif %}                                
+                                <a class="d-block" href="{% url 'watch_detail' watch.id %}">
+                                    <img class="img-fluid w-100 h-100" src="{{ watch.image.url }}" alt="{{ watch.name }}">
+                                </a>
                                 {% else %}
-                                <div class="badge text-white badge-"></div><a class="d-block"
+                                <div class="badge text-white badge-secondary"></div><a class="d-block"
                                     href="{% url 'watch_detail' watch.id %}"><img class="img-fluid w-100 h-100"
                                         src="{{ MEDIA_URL }}noimage.png" alt="{{ watch.name }}"></a>
                                 {% endif %}

@@ -4,9 +4,9 @@ from django.db import models
 
 """ Primary = New, Secondary = Discount, Danger = Sold """ 
 LABEL = (
-    ('P', 'PRIMARY'), 
-    ('S', 'SECONDARY'), 
-    ('D', 'DANGER'), 
+    ('New', 'PRIMARY'), 
+    ('Discount', 'SECONDARY'), 
+    ('Sold', 'DANGER'), 
 ) 
 
 
