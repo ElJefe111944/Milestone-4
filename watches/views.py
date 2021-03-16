@@ -142,4 +142,4 @@ def delete_watch(request, watch_id):
     watch.delete()
     messages.success(request, 'Watch successfully deleted.')
 
-    return redirect(reverse('all_watches'))
+    return redirect(reverse('watches'))
