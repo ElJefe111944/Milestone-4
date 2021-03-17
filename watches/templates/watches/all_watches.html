@@ -180,9 +180,9 @@
                                                 <i class="far fa-edit"></i>
                                             </a>
                                         </li>
-                                        {% endif %}
+                                        {% endif %}                                        
                                         <li class="list-inline-item m-0 p-0">
-                                            <a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a>
+                                            <a class="btn btn-sm btn-dark" href="{% url 'watch_detail' watch.id %}">More Information</a>
                                         </li>
                                         {% if request.user.is_superuser %}
                                         <li class="list-inline-item mr-0">
