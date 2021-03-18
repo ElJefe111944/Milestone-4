@@ -18,6 +18,7 @@ class OrderAdmin(admin.ModelAdmin):
                     'grand_total',
                     'original_shoppingcart',
                     'stripe_pid',
+                    'member_discount',
                     )                    
 
     fields = (
@@ -34,6 +35,7 @@ class OrderAdmin(admin.ModelAdmin):
                 'state_or_county',
                 'date', 
                 'delivery_cost',
+                'member_discount',
                 'order_total', 
                 'grand_total',
                 'original_shoppingcart',
@@ -52,6 +54,7 @@ class OrderAdmin(admin.ModelAdmin):
                     'town_or_city', 
                     'state_or_county',
                     'date', 
+                    'member_discount',
                     'delivery_cost',
                     'order_total', 
                     'grand_total', 

@@ -134,9 +134,16 @@
                             <li class="d-flex align-items-center justify-content-between">
                                 <strong class="text-uppercase small font-weight-bold">Delivery</strong><span>£{{ delivery |floatformat:2 }}</span>
                             </li>
-                            <li class="border-bottom my-2"></li>                           
+                            <li class="border-bottom my-2"></li>
                             <li class="d-flex align-items-center justify-content-between">
+                                {% if request.user.is_authenticated %}
+                                <strong class="text-uppercase small font-weight-bold">Member Discount</strong><span>£{{ discount|floatformat:2 }}</span>
+                                {% endif %}
+                            </li>
+                            <li class="border-bottom my-2"></li>                           
+                            <li class="d-flex align-items-center justify-content-between">  
                                 <strong class="text-uppercase small font-weight-bold">Total</strong><span>£{{ grand_total|floatformat:2 }}</span>
+                              
                             </li>
                         </ul>
                     </div>

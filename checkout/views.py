@@ -146,7 +146,7 @@ def checkout_success(request, order_number):
         # Attach the user's profile to the order
         order.user_profile = profile
         order.save()
-
+        order.update_total()
         # Save the user's info
         if save_info:
             profile_data = {
