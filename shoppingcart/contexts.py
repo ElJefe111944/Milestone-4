@@ -20,21 +20,33 @@ def shoppingcart_contents(request):
             'quantity': quantity,
             'watch': watch,
         })
+    discount = total * Decimal(settings.MEMBER_DISCOUNT / 100)
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
+        if request.user.is_authenticated:
+            
+            grand_total = total - discount + delivery
+        else:
+            grand_total = total + delivery
     else:
         delivery = 0 
         free_delivery_delta = 0
+        if request.user.is_authenticated:
+            discount = total * Decimal(settings.MEMBER_DISCOUNT / 100)
+            grand_total = total - discount + delivery
+        else:
+            grand_total = total + delivery
 
-    discount = total * Decimal(settings.MEMBER_DISCOUNT / 100)
+    
 
     if request.user.is_authenticated:
         grand_total = total - discount + delivery
 
     else:
         grand_total = total + delivery
+
     context = {
         'shoppingcart_items': shoppingcart_items,
         'total': total,
