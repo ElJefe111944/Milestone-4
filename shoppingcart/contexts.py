@@ -38,6 +38,12 @@ def shoppingcart_contents(request):
         else:
             grand_total = total + delivery
 
+    if request.user.is_authenticated:
+        discount = total * Decimal(settings.MEMBER_DISCOUNT / 100)
+        grand_total = total - discount + delivery
+    else:
+        grand_total = total + delivery
+
     context = {
         'shoppingcart_items': shoppingcart_items,
         'total': total,

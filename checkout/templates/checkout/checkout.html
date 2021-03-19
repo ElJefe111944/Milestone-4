@@ -137,12 +137,12 @@
                              {% if request.user.is_authenticated %}
                             <li class="border-bottom my-2"></li>
                             <li class="d-flex align-items-center justify-content-between">                               
-                                <strong class="text-uppercase small font-weight-bold">Member Discount</strong><span>£{{ discount|floatformat:2 }}</span>
+                                <strong class="text-uppercase small font-weight-bold">Member Discount</strong><span>(£{{ discount|floatformat:2 }})</span>
                                 {% endif %}
                             </li>
                             <li class="border-bottom my-2"></li>                           
                             <li class="d-flex align-items-center justify-content-between">  
-                                <strong class="text-uppercase small font-weight-bold">Total</strong><span>£{{ grand_total|floatformat:2 }}</span>
+                                <strong class="text-uppercase font-weight-bold">Total</strong><span class="font-weight-bold">£{{ grand_total|floatformat:2 }}</span>
                               
                             </li>
                         </ul>
