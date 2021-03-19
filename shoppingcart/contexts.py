@@ -26,7 +26,6 @@ def shoppingcart_contents(request):
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
         if request.user.is_authenticated:
-            
             grand_total = total - discount + delivery
         else:
             grand_total = total + delivery
@@ -38,14 +37,6 @@ def shoppingcart_contents(request):
             grand_total = total - discount + delivery
         else:
             grand_total = total + delivery
-
-    
-
-    if request.user.is_authenticated:
-        grand_total = total - discount + delivery
-
-    else:
-        grand_total = total + delivery
 
     context = {
         'shoppingcart_items': shoppingcart_items,
