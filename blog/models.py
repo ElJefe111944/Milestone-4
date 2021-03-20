@@ -10,9 +10,7 @@ class Post(models.Model):
     title = models.CharField(max_length=55)
     title_tag = models.CharField(max_length=55, default="Blog")
     author = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    blog_image = models.ImageField(null=True, blank=True)
-    introduction = models.TextField(
-        max_length=55, null=False, blank=False, default="Introduction"), 
+    blog_image = models.ImageField(null=True, blank=True) 
     subheading1 = models.TextField(
         max_length=55, null=False, blank=False, default="Subheading")
     main_content1 = models.TextField(
