@@ -20,12 +20,11 @@
         </div>
     </section>
 </div>
-<h1>Post</h1>
-{% for post in object_list %}
-<div class="post-entry">
-    <h2><a href="#">{{ post.title }}</a></h2>
-    <p>{{ post.body }}</p>
-    <p class="small text-muted">{{ post.author }}</p>
-</div>
-{% endfor %}
+<h1>{{ post.title }}</h1>
+<p>{{ post.body }}</p>
+<hr>
+<br>
+<small>{{ post.author }}</small>
+
+
 {% endblock %}

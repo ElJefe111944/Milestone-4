@@ -12,6 +12,7 @@ from .models import Post
 class BlogHomeView(ListView):
     model = Post
     template_name = 'blog/blog.html'
+    
 
 class BlogDetailView(DetailView):
     model = Post

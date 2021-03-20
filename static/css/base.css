@@ -1502,7 +1502,8 @@ STYLE SWITCHER FOR DEMO
     15 - Preloader 
     16 - Allauth Template
     17 - Profile Template
-
+    18 - Product Management
+    19 - Blog
 */
 /*
  * 1. NAVBAR
@@ -3727,4 +3728,15 @@ select option[value=""] {
     background-color: #dc3545;
     border-color: #dc3545;
     border-radius: 0;
+}
+
+/*
+* 19 - Blog
+*/
+
+/*-- Blog main page --*/
+hr.horizontal-line {
+    margin-left: 40%;
+    margin-right: 40%;
+    border-top: 1.5px solid #dcb14a;
 }
