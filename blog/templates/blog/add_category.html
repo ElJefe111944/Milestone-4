@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- HERO SECTION-->
+<div class="container">
+    <section class="py-5 bg-light">
+        <div class="row px-4 px-lg-5 py-lg-4 align-items-center">
+            <div class="col-lg-6">
+                <h1 class="h2 text-uppercase mb-0"><i class="fas fa-blog mr-1"></i>Blog</h1>
+            </div>
+            <div class="col-lg-6 text-lg-right">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-lg-end mb-0 px-0">
+                        <h2 class="text-center">Add Category</h2>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+<hr class="horizontal-line">
+<section class="py-5">
+    <h2 class="h5 text-uppercase mb-4">Add Category</h2>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="form-group">
+            <!-- ADD Category FORM -->
+            <form action="#" method="POST" id="blog-form" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                {% if field.name != 'image' %}
+                {{ field | as_crispy_field }}
+                {% else %}
+                {{ field }}
+                {% endif %}
+                {% endfor %}
+                <div class="col-lg-12 form-group text-center">
+                    <!--BACK TO MAIN BLOG PAGE -->
+                    <a href="#">
+                        <button type="button" class="btn btn-outline-danger">Cancel</button>
+                    </a>
+                    <!-- ADD CATEGORY BTN -->
+                    <button class="btn btn-dark" type="submit">Add Category</button>
+                </div>
+            </form>
+            </div>
+            <!-- END OF ADD CATEGORY FORM -->
+        </div>
+    </div>
+</section>
+</div>
+
+{% endblock %}
