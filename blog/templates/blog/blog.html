@@ -9,7 +9,7 @@
             <div class="col-lg-6">
                 <h1 class="h2 text-uppercase mb-0"><i class="fas fa-blog mr-1"></i> Blog</h1>
             </div>
-            <div class="col-lg-6 text-lg-right">
+            <div class="col-lg-6 text-lg-right m-2">
                 <a href="{% url 'add_post' %}" class="btn btn-primary active" role="button" aria-pressed="true">Add Blog</a>
                 <a href="{% url 'add_category' %}" class="btn btn-secondary active" role="button" aria-pressed="true">Add Category</a>
             </div>
@@ -123,11 +123,10 @@
                 <header>
                     <h3 class="h6">Categories</h3>
                 </header>
-                <div class="item d-flex justify-content-between"><a href="#">Growth</a><span>12</span></div>
-                <div class="item d-flex justify-content-between"><a href="#">Local</a><span>25</span></div>
-                <div class="item d-flex justify-content-between"><a href="#">Sales</a><span>8</span></div>
-                <div class="item d-flex justify-content-between"><a href="#">Tips</a><span>17</span></div>
-                <div class="item d-flex justify-content-between"><a href="#">Local</a><span>25</span></div>
+                {% for post in object_list %}
+                <div class="item d-flex justify-content-between"><a href="#">{{ category.post.name }}</a><span>12</span></div>
+                {% endfor %}
+
             </div>
             <!-- Widget [Tags Cloud Widget]-->
             <div class="widget tags">

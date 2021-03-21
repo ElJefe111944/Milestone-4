@@ -54,3 +54,7 @@ class CategoryCreateView(CreateView):
     model = Category    
     template_name = 'blog/add_category.html'
     fields = '__all__'
+
+
+# def CategoryView(request, cats):
+#     return render(request, )

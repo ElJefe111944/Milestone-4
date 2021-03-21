@@ -2,11 +2,13 @@ from django.urls import path
 # from . import views
 from .views import (
     BlogHomeView, BlogDetailView, BlogCreateView,
-    BlogUpdateView, BlogDeleteView, CategoryCreateView
+    BlogUpdateView, BlogDeleteView, CategoryCreateView,
+    # CategoryView
     )
 
 
 urlpatterns = [
+    # path('category/<str:cats>/', CategoryView, name='category'),
     path('add_category/', CategoryCreateView.as_view(), name='add_category'),
     path('add_post', BlogCreateView.as_view(), name='add_post'),
     path('post/<int:pk>/', BlogDetailView.as_view(), name='blog_detail'),
