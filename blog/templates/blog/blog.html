@@ -26,8 +26,15 @@
                     {% for post in object_list %}
                     <!-- post -->
                     <div class="post col-xl-6">
-                        <div class="post-thumbnail"><a href="post.html"><img src="/media/product-1.jpg" alt="..."
-                                    class="img-fluid"></a></div>
+                        {% if post.blog_image %}
+                        <div class="post-thumbnail">
+                            <a href="{% url 'blog_detail' post.pk %}"><img src="{{  post.blog_image.url }}" alt="..." class="img-fluid"></a>
+                        </div>
+                        {% else %}
+                        <div class="post-thumbnail">
+                            <a href="{% url 'blog_detail' post.pk %}"><img src="/media/product-1.jpg" alt="..." class="img-fluid"></a>
+                        </div>
+                        {% endif %}
                         <div class="post-details">
                             <div class="post-meta d-flex justify-content-between">
                                 <div class="date meta-last">20 May | 2016</div>

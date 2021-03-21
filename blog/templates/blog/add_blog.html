@@ -18,10 +18,36 @@
             </div>
         </div>
     </section>
-</div>
+
 <hr class="horizontal-line">
-<div class="container">
-   
+<section class="py-5">
+    <!-- ADD WATCH FORM -->
+    <h2 class="h5 text-uppercase mb-4">Add Blog</h2>
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- ADD BLOG FORM -->
+            <form action="#" method="POST" id="blog-form" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                {% if field.name != 'image' %}
+                {{ field | as_crispy_field }}
+                {% else %}
+                {{ field }}
+                {% endif %}
+                {% endfor %}
+                <div class="col-lg-12 form-group text-center">
+                    <!--BACK TO MAIN BLOG PAGE -->
+                    <a href="#">
+                        <button type="button" class="btn btn-outline-danger">Cancel</button>
+                    </a>
+                    <!-- ADD BLOG BTN -->
+                    <button class="btn btn-dark" type="submit">Add Blog</button>
+                </div>
+            </form>
+            <!-- END OF ADD BLOG FORM -->
+        </div>
+    </div>
+</section>
 </div>
 
 {% endblock %}
