@@ -77,12 +77,12 @@
                                 exercitation ullamco laboris nisi ut aliquip.</p>
                             <!-- End of Main-Content2 -->
                         </div>
-                        {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
                         <div class="row m-3">
                             <a class="btn btn-sm btn-outline-dark" href="{% url 'edit_post' post.pk %}">
                                 Update Blog <i class="far fa-edit"></i>
                             </a>
-                            <a class="btn btn-sm btn-outline-dark" href="">
+                            <a class="btn btn-sm btn-outline-dark" href="{% url 'delete_post' post.pk %}">
                                 Delete Blog <i class="fas fa-trash"></i>
                             </a>
                             {% endif %}
