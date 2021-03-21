@@ -12,7 +12,7 @@
             <div class="col-lg-6 text-lg-right">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-lg-end mb-0 px-0">
-                        <h2 class="text-center">Add Blog</h2>
+                        <h2 class="text-center">Update Blog</h2>
                     </ol>
                 </nav>
             </div>
@@ -21,10 +21,11 @@
 
 <hr class="horizontal-line">
 <section class="py-5">
-    <h2 class="h5 text-uppercase mb-4">Add Blog</h2>
+    <!-- ADD BLOG FORM -->
+    <h2 class="h5 text-uppercase mb-4">Update Blog</h2>
     <div class="row">
         <div class="col-lg-8">
-            <!-- ADD BLOG FORM -->
+            <!-- EDIT BLOG FORM -->
             <form action="#" method="POST" id="blog-form" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% for field in form %}
@@ -39,11 +40,11 @@
                     <a href="#">
                         <button type="button" class="btn btn-outline-danger">Cancel</button>
                     </a>
-                    <!-- ADD BLOG BTN -->
-                    <button class="btn btn-dark" type="submit">Add Blog</button>
+                    <!-- UPDATE BLOG BTN -->
+                    <button class="btn btn-dark" type="submit">Update Blog</button>
                 </div>
             </form>
-            <!-- END OF ADD BLOG FORM -->
+            <!-- END OF EDIT BLOG FORM -->
         </div>
     </div>
 </section>
