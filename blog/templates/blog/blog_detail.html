@@ -35,46 +35,36 @@
                     <!-- End of Blog-Image -->
                     <div class="post-details">
                         <div class="post-meta d-flex justify-content-between">
-                            <div class="category"><a href="#">Business</a><a href="#">Financial</a></div>
+                            <div class="category mt-2"><a href="#">{{ post.category }}</a></div>
                         </div>
                         <!-- Blog Title -->
                         <h1>{{ post.title }}<a href="#"> <i class="fa fa-bookmark-o"></i></a></h1>
+                               <!-- Blog Author -->
+                                <div class="title"><span>{{ post.author }}</span></div>                       
+                                <!-- End Blog Author -->
                         <!-- End of Blog Title -->
                         <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a href="#"
                                 class="author d-flex align-items-center flex-wrap">
-                                <div class="avatar"><img src="img/avatar-1.jpg" alt="..." class="img-fluid"></div>
-                                <!-- Blog Author -->
-                                <div class="title"><span>{{ post.author }}</span></div>
-                                <!-- End Blog Author -->
+                         
                             </a>
                             <div class="d-flex align-items-center flex-wrap">
-                                <!-- Blog Published date -->
-                                <div class="date"><i class="icon-clock"></i> 2 months ago</div>
-                                <!-- End of Blog Published date -->
-                                <div class="views"><i class="icon-eye"></i> 500</div>
-                                <div class="comments meta-last"><i class="icon-comment"></i>12</div>
+                                   <!-- Blog Published date -->
+                                <div class="date"><i class="icon-clock"></i> {{ post.publish_date }}</div>
                             </div>
                         </div>
-                        <div class="post-body">
-                            <!-- Introduction -->
-                            <p class="lead">{{ post.body }}</p>
-                            <!-- End of Introduction -->
-                            <p> <img src="img/featured-pic-3.jpeg" alt="..." class="img-fluid"></p>
+                        <div class="post-body">                          
+                                                    
                             <!-- Subheading 1 -->
-                            <h3>Lorem Ipsum Dolor</h3>
+                            <h3>{{ post.subheading1 }}</h3>
                             <!-- End of Subheading 1 -->
                             <!-- Main-Content -->
-                            <p>div Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda temporibus iusto
-                                voluptates deleniti similique rerum ducimus sint ex odio saepe. Sapiente quae pariatur
-                                ratione quis perspiciatis deleniti accusantium</p>
+                            <p>{{ post.main_content1 }}</p>
                             <!-- End of Main-Content -->
                             <!-- Subheading 2 -->
-                            <h3>Lorem Ipsum Dolor</h3>
+                            <h3>{{ post.subheading2 }}</h3>
                             <!-- End of Subheading 2 -->
                             <!-- Main-Content2 -->
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco laboris nisi ut aliquip.</p>
+                            <p>{{ post.main_content2 }}</p>
                             <!-- End of Main-Content2 -->
                         </div>
                         {% if request.user.is_superuser %}

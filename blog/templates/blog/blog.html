@@ -38,7 +38,7 @@
                         <div class="post-details">
                             <div class="post-meta d-flex justify-content-between">
                         
-                                <div class="category"><a href="#">Business</a></div>
+                                <div class="category mt-1"><a href="#">{{ post.category }}</a></div>
                             </div><a href="post.html">
                                 <h3 class="h4"><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h3>
                             </a>
