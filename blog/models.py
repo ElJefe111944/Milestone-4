@@ -5,6 +5,18 @@ from django.urls import reverse
 # Create your models here.
 
 
+class Category(models.Model):
+    class Meta:
+        verbose_name_plural = 'Categories'
+    name = models.CharField(max_length=55, default='New Releases')
+   
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('blog_detail', args=[str(self.id)])
+
+
 class Post(models.Model):
     publish_date = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=55)
@@ -17,6 +29,7 @@ class Post(models.Model):
         max_length=255, null=False, blank=False, default="Main Content")
     subheading2 = models.TextField(max_length=55, null=True, blank=True)
     main_content2 = models.TextField(max_length=255, null=True, blank=True)
+    category = models.CharField(max_length=55, default='New Releases')
 
     def __str__(self):
         return self.title + ' | ' + str(self.author)
