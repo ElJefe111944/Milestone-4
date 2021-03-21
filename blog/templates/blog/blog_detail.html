@@ -67,21 +67,29 @@
                             <p>div Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda temporibus iusto
                                 voluptates deleniti similique rerum ducimus sint ex odio saepe. Sapiente quae pariatur
                                 ratione quis perspiciatis deleniti accusantium</p>
-                                <!-- End of Main-Content -->
-                                <!-- Subheading 2 -->
-                                <h3>Lorem Ipsum Dolor</h3>
-                                <!-- End of Subheading 2 -->
-                                <!-- Main-Content2 -->
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut aliquip.</p>
-                                <!-- End of Main-Content2 -->
+                            <!-- End of Main-Content -->
+                            <!-- Subheading 2 -->
+                            <h3>Lorem Ipsum Dolor</h3>
+                            <!-- End of Subheading 2 -->
+                            <!-- Main-Content2 -->
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip.</p>
+                            <!-- End of Main-Content2 -->
                         </div>
-                        <div class="post-tags"><a href="#" class="tag">#Business</a><a href="#"
-                                class="tag">#Tricks</a><a href="#" class="tag">#Financial</a><a href="#"
-                                class="tag">#Economy</a></div>
-                        <div
-                            class="posts-nav d-flex justify-content-between align-items-stretch flex-column flex-md-row">
+                        {% if request.user.is_authenticated %}
+                        <div class="row m-3">
+                            <a class="btn btn-sm btn-outline-dark" href="{% url 'edit_post' post.pk %}">
+                                Update Blog <i class="far fa-edit"></i>
+                            </a>
+                            <a class="btn btn-sm btn-outline-dark" href="">
+                                Delete Blog <i class="fas fa-trash"></i>
+                            </a>
+                            {% endif %}
+                        </div>
+                        <div class="post-tags"><a href="#" class="tag">#Business</a><a href="#" class="tag">#Tricks</a><a href="#"
+                                class="tag">#Financial</a><a href="#" class="tag">#Economy</a></div>
+                        <div class="posts-nav d-flex justify-content-between align-items-stretch flex-column flex-md-row">
                             <a href="#" class="prev-post text-left d-flex align-items-center">
                                 <div class="icon prev"><i class="fa fa-angle-left"></i></div>
                                 <div class="text"><strong class="text-primary">Previous Post </strong>
