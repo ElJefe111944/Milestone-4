@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import (
     CreateView, UpdateView, DeleteView)
@@ -16,7 +17,7 @@ from .models import Post, Category
 class BlogHomeView(ListView):
     model = Post
     template_name = 'blog/blog.html'
-    ordering = ['-id']
+    ordering = ['-publish_date']
 
 
 class BlogDetailView(DetailView):
@@ -51,10 +52,11 @@ class BlogDeleteView(DeleteView):
 
 
 class CategoryCreateView(CreateView):
-    model = Category    
+    model = Category
     template_name = 'blog/add_category.html'
     fields = '__all__'
 
 
 # def CategoryView(request, cats):
-#     return render(request, )
+#     category_posts = Post.objects.filter(category=cats)
+#     return render(request, 'blog/blog.html', {'cats': cats, 'category_posts': category_posts})
