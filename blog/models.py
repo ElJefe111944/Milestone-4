@@ -21,6 +21,7 @@ class Post(models.Model):
     publish_date = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=55)
     title_tag = models.CharField(max_length=55)
+    info = models.CharField(max_length=55, default="Summary")
     author = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     blog_image = models.ImageField(blank=True)
     subheading1 = models.TextField(

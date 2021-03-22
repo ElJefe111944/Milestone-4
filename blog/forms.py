@@ -16,7 +16,7 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = [
-            'title', 'author', 'category', 'title_tag', 'blog_image',
+            'title', 'author', 'info',  'category', 'title_tag', 'blog_image',
             'subheading1', 'main_content1', 'subheading2', 'main_content2'
             ] 
 
@@ -27,6 +27,7 @@ class PostForm(forms.ModelForm):
                 'category': forms.Select(
                     choices=choice_list, attrs={'class': 'form-control'}),
                 'title_tag': forms.TextInput(attrs={'class': 'form-control'}),
+                'info': forms.TextInput(attrs={'class': 'form-control'}),
                 'subheading1': forms.TextInput(attrs={'class': 'form-control'}),
                 'main_content1': forms.Textarea(attrs={'class': 'form-control'}),
                 'subheading2': forms.TextInput(attrs={'class': 'form-control'}),
@@ -39,7 +40,7 @@ class EditForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = [
-            'title', 'author', 'category', 'title_tag', 'blog_image', 'subheading1',
+            'title', 'author', 'category', 'title_tag', 'info', 'blog_image', 'subheading1',
             'main_content1', 'subheading2', 'main_content2'
             ] 
 
@@ -50,6 +51,7 @@ class EditForm(forms.ModelForm):
                 'category': forms.Select(
                     choices=choice_list, attrs={'class': 'form-control'}),
                 'title_tag': forms.TextInput(attrs={'class': 'form-control'}),
+                'info': forms.TextInput(attrs={'class': 'form-control'}),
                 'subheading1': forms.TextInput(attrs={'class': 'form-control'}),
                 'main_content1': forms.Textarea(attrs={'class': 'form-control'}),
                 'subheading2': forms.TextInput(attrs={'class': 'form-control'}),
