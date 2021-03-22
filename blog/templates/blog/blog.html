@@ -38,7 +38,7 @@
                         {% endif %}
                         <div class="post-details">                           
                                 <h3 class="h4 m-2"><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h3>                           
-                            <p class="text-muted">{{ post.body }}</p>
+                            <p class="text-muted m-2">{{ post.info }}</p>
                             <div class="title m-2"><span class="text-muted">{{ post.author }}</span></div>
                             <div class="date text-muted m-2"><i class="icon-clock"></i>{{ post.publish_date }}</div>
                             <footer class="post-footer d-flex align-items-center">                               
