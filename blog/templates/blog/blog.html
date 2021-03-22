@@ -9,12 +9,14 @@
             <div class="col-lg-6">
                 <h1 class="h2 text-uppercase mb-0"><i class="fas fa-blog mr-1"></i> Blog</h1>
             </div>
+            {% if user.is_superuser %}
             <div class="col-lg-6 text-lg-right m-2">
                 <a href="{% url 'add_post' %}" class="btn btn-primary active" role="button" aria-pressed="true">Add Blog</a>
                 <a href="{% url 'add_category' %}" class="btn btn-secondary active" role="button" aria-pressed="true">Add Category</a>
             </div>
+            {% endif %}
             </div>
-            </section>
+    </section>
 </div>
 <hr class="horizontal-line">
 <div class="container">
@@ -51,7 +53,6 @@
                         </div>
                     {% endfor %}
                     <!-- End of post -->
-
                     <!-- Pagination -->
                     <nav aria-label="Page navigation example">
                         <ul class="pagination pagination-template d-flex justify-content-center">
@@ -67,63 +68,34 @@
                 </div>
             </div>
         </main>
-        <aside class="col-lg-4">
-            <!-- Widget [Search Bar Widget]-->
-            <div class="widget search">
-                <header>
+        <aside class="col-lg-4">            
+            <!-- Available Blog -->
+            <div class="widget latest-posts">
+                    <header>
                     <h3 class="h6">Search the blog</h3>
                 </header>
-                <form action="#" class="search-form">
-                    <div class="form-group">
-                        <input type="search" placeholder="What are you looking for?">
-                        <button type="submit" class="submit"><i class="icon-search"></i></button>
-                    </div>
-                </form>
-            </div>
-            <!-- Widget [Latest Posts Widget]        -->
-            <div class="widget latest-posts">
-                <header>
-                    <h3 class="h6">Latest Posts</h3>
-                </header>
-                {% for post in object_list %}
-                <div class="blog-posts">
-                    <a href="{% url 'blog_detail' post.pk %}">
-                        <div class="item d-flex align-items-center">                            
-                            <div class="title"><strong>{{ post.title }}</strong>
-                                <div class="d-flex align-items-center">
-                                    <!-- <div class="views"><i class="icon-eye"></i> 500</div>
-                                    <div class="comments"><i class="icon-comment"></i>12</div> -->
+                <hr>
+                
+                <ul class="blog-posts">
+                    {% for post in object_list %}
+                    <li>
+                        <a href="{% url 'blog_detail' post.pk %}">
+                            <div class="item d-flex align-items-center">
+                                <div class="title"><strong>{{ post.title }}</strong>
+                                    <div class="d-flex align-items-center">
+                                        <!-- <div class="views"><i class="icon-eye"></i> 500</div>
+                                                    <div class="comments"><i class="icon-comment"></i>12</div> -->
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                {% endfor %}
-            </div>
-            <!-- Widget [Categories Widget]-->
-            <div class="widget categories">
-                <header>
-                    <h3 class="h6">Categories</h3>
-                </header>
-               
-                <div class="item d-flex justify-content-between"><a href="#"></a><span></span></div>
-           
-
-            </div>
-            <!-- Widget [Tags Cloud Widget]-->
-            <div class="widget tags">
-                <header>
-                    <h3 class="h6">Tags</h3>
-                </header>
-                <ul class="list-inline">
-                    <li class="list-inline-item"><a href="#" class="tag">#Business</a></li>
-                    <li class="list-inline-item"><a href="#" class="tag">#Technology</a></li>
-                    <li class="list-inline-item"><a href="#" class="tag">#Fashion</a></li>
-                    <li class="list-inline-item"><a href="#" class="tag">#Sports</a></li>
-                    <li class="list-inline-item"><a href="#" class="tag">#Economy</a></li>
+                        </a>
+                    </li>
+                    {% endfor %}
                 </ul>
-            </div>
-        </aside>
+               
+                </div>
+                
+                </aside>
     </div>
 </div>
 
