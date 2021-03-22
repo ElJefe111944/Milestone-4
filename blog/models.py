@@ -30,7 +30,9 @@ class Post(models.Model):
         max_length=355, null=False, blank=False, default="Main Content")
     subheading2 = models.TextField(max_length=55, null=True, blank=True)
     main_content2 = models.TextField(max_length=355, null=True, blank=True)
-
+    subheading3 = models.TextField(max_length=55, null=True, blank=True)
+    main_content3 = models.TextField(max_length=355, null=True, blank=True)
+    main_content_extra = models.TextField(max_length=355, null=True, blank=True)
 
     def __str__(self):
         return self.title + ' | ' + str(self.author)
