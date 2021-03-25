@@ -61,7 +61,7 @@
                     <!-- LIKE BLOG -->
                     <form action="{% url 'like-post' post.pk %}" method="POST">
                         {% csrf_token %}
-                        <button type="submit" name="post_id" value="{{ post.id }}" class="btn like-btn btn-outline-dark"><i class="fas fa-thumbs-up"></i></button>
+                        <button type="submit" name="post_id" value="{{ post.id }}" class="btn like-btn btn-outline-dark"><i class="fas fa-thumbs-up"></i></button> {{ total_likes }}
                     </form>                    
                 </div>
                 {% if request.user.is_superuser %}
