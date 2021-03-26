@@ -36,13 +36,13 @@ class BlogDetailView(DetailView):
     model = Post
     template_name = 'blog/blog_detail.html'
 
-    def get_context_data(self, *args, **kwargs):
-        context = super(BlogDetailView, self).get_context_data(**kwargs)
+    # def get_context_data(self, *args, **kwargs):
+    #     context = super(BlogDetailView, self).get_context_data(**kwargs)
 
-        stuff = get_object_or_404(Post, id=self.kwargs['pk'])
-        total_likes = stuff.total_likes()
-        context["total_likes"] = total_likes
-        return context
+    #     stuff = get_object_or_404(Post, id=self.kwargs['pk'])
+    #     total_likes = stuff.total_likes()
+    #     context["total_likes"] = total_likes
+    #     return context
 
 
 class BlogCreateView(CreateView):
