@@ -156,6 +156,23 @@ body {
   min-height: 30rem;
 }
 
+p.text-muted.small.text-uppercase.mb-2 {
+    color: #dcb14a!important;
+}
+
+h2.h2.text-uppercase.mb-3 {
+    color: #fafafa;
+}
+
+.container.py-5 {
+    background: rgba(0,0,0,0.55);
+}
+.btn-dark {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+}
+
 /*
 *
 * ==========================================
