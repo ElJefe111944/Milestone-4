@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import (
@@ -7,8 +7,8 @@ from django.urls import reverse_lazy, reverse
 from .forms import PostForm, EditForm
 from django.http import HttpResponseRedirect
 
-from profiles.models import UserProfile
-from .models import Post
+# from profiles.models import UserProfile
+from .models import Post, Comment
 
 # Create your views here.
 
@@ -67,3 +67,10 @@ class BlogDeleteView(DeleteView):
     model = Post
     template_name = 'blog/delete_blog.html'
     success_url = reverse_lazy('blog')
+
+
+class CommentCreateView(CreateView):
+    model = Comment
+    # form_class = CommentForm
+    template_name = 'blog/add_comment.html'
+    fields = '__all__'

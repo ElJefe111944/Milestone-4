@@ -79,14 +79,19 @@
                         {% endif %}
                         {% endif %}                       
                     </form>
+                    <!-- COMMENTS SECTION -->   
                     <div class="col-lg-12">          
                     {% if not post.comments.all %}
                      <div class="post-comments">
-                         <hr>                         
+                        <hr>
                         <header>
-                            <h3 class="h6">No Comments Yet..... <a href="">Add One </a></h3>
+                            <h3 class="h6">No Comments Yet..... 
+                                <a href="{% url 'add_comment' post.pk %}">
+                                    <button type="button" class="btn btn-dark">Add a Comment</button>
+                                </a>
+                            </h3>
                         </header>
-                        <hr>                        
+                        <hr>
                     </div>
                     {% else %}    
                     <div class="post-comments">
@@ -106,37 +111,15 @@
                             <div class="comment-body">
                                 <p>{{ comment.comment }}</p>
                             </div>
-                        </div>                       
-                        {% endfor %}
-                    </div>
-                    <br>
-                    {% endif %}
-                    <!-- COMMENTS SECTION -->
-                    <div class="add-comment">
-                        <header>
-                            <h3 class="h6">Leave a reply</h3>
-                        </header>
-                        <form action="#" class="commenting-form">
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <input type="text" name="username" id="username" placeholder="Name"
-                                        class="form-control">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="email" name="username" id="useremail"
-                                        placeholder="Email Address (will not be published)" class="form-control">
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <textarea name="usercomment" id="usercomment" placeholder="Type your comment"
-                                        class="form-control"></textarea>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <button type="submit" class="btn btn-secondary">Submit Comment</button>
-                                </div>
                             </div>
-                        </form>
-                    </div>
-                    <!-- END OF COMMENTS SECTION -->
+                            {% endfor %}
+                            <a href="{% url 'add_comment' post.pk %}">
+                                <button type="button" class="btn btn-dark">Add a Comment</button>
+                            </a>
+                            </div>
+                            <br>
+                    {% endif %}
+                <!-- END OF COMMENTS SECTION -->
                 </div>
                 </div>  
                 {% if request.user.is_superuser %}
