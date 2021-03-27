@@ -15,14 +15,14 @@ from .models import Post
 
 def LikeView(request, pk):
     if request.user.is_authenticated:
-        myPost = get_object_or_404(Post, pk=pk)
-        session_user = request.user
-        print("--------------session user:", session_user)
+        myPost = get_object_or_404(Post, pk=pk)       
         user_like = get_object_or_404(User, pk=request.user.id)
-        print("----------------user_like", user_like)
-        like = myPost.likes.add(user_like)
-        myPost.save()
-        print("----------------Like:", like)
+        if myPost.likes.filter(id=request.user.id).exists():
+            myPost.likes.remove(request.user)
+        else:     
+            myPost.likes.add(request.user)
+            myPost.save()
+    
         return HttpResponseRedirect(reverse('blog_detail', args=[str(pk)]))
  
 
@@ -41,7 +41,13 @@ class BlogDetailView(DetailView):
 
         stuff = get_object_or_404(Post, id=self.kwargs['pk'])
         total_likes = stuff.total_likes()
+
+        liked = False
+        if stuff.likes.filter(id=self.request.user.id).exists():
+            liked = True
+
         context["total_likes"] = total_likes
+        context["liked"] = liked
         return context
 
 

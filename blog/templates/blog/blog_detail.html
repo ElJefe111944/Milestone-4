@@ -63,7 +63,19 @@
                             {% csrf_token %}
 
                         {% if user.is_authenticated %}
-                            <button type="submit" name="post_id" value="{{ post.id }}" class="btn like-btn btn-outline-dark"><i class="fas fa-thumbs-up"></i></button> {{ total_likes }}
+                            {% if liked %}
+                            <button type="submit" name="post_id" value="{{ post.id }}" class="btn like-btn btn-outline-danger" data-toggle="tooltip" data-placement="bottom" title="Like">
+                                <i class="fas fa-thumbs-down"></i> 
+                                <small class="text-muted">{{ total_likes }} Likes</small>
+                            </button> 
+                            
+                            {% else %}
+                            <button type="submit" name="post_id" value="{{ post.id }}" class="btn like-btn btn-outline-dark" data-toggle="tooltip" data-placement="bottom" title="Unlike">
+                                <i class="fas fa-thumbs-up"></i>     
+                                <small class="text-muted">{{ total_likes }} Likes</small>
+                            </button>                             
+                        
+                            {% endif %}
                         {% endif %}
                     </form>                    
                 </div>
