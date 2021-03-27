@@ -77,25 +77,40 @@
                             <small class="text-muted">{{ total_likes }} Likes</small>
                         </button>
                         {% endif %}
-                        {% endif %}
+                        {% endif %}                       
                     </form>
-                    <div class="post-comments">
+                    <div class="col-lg-12">          
+                    {% if not post.comments.all %}
+                     <div class="post-comments">
+                         <hr>                         
                         <header>
-                            <h3 class="h6">Post Comments<span class="no-of-comments">(3)</span></h3>
+                            <h3 class="h6">No Comments Yet..... <a href="">Add One </a></h3>
                         </header>
+                        <hr>                        
+                    </div>
+                    {% else %}    
+                    <div class="post-comments">
+                        <hr>
+                        <header>
+                            <h3 class="h6">Comments</h3>
+                        </header>
+                        {% for comment in post.comments.all %}
+                        <hr>
                         <div class="comment">
                             <div class="comment-header d-flex justify-content-between">
                                 <div class="user d-flex align-items-center">                                    
-                                    <div class="title"><strong>Jabi Hernandiz</strong> &nbsp; <span class="date">May 2016</span>
+                                    <div class="title"><strong>{{ comment.name }}</strong> &nbsp;- <span class="date text-muted">{{ comment.date_added }}</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="comment-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                <p>{{ comment.comment }}</p>
                             </div>
-                        </div>
+                        </div>                       
+                        {% endfor %}
                     </div>
+                    <br>
+                    {% endif %}
                     <!-- COMMENTS SECTION -->
                     <div class="add-comment">
                         <header>
@@ -123,6 +138,7 @@
                     </div>
                     <!-- END OF COMMENTS SECTION -->
                 </div>
+                </div>  
                 {% if request.user.is_superuser %}
                 <div class="row m-1">
                     <a class="btn btn-sm btn-dark mr-1" href="{% url 'edit_post' post.pk %}">
