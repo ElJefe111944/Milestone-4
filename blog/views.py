@@ -4,7 +4,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import (
     CreateView, UpdateView, DeleteView)
 from django.urls import reverse_lazy, reverse
-from .forms import PostForm, EditForm
+from .forms import PostForm, EditForm, CommentForm
 from django.http import HttpResponseRedirect
 
 # from profiles.models import UserProfile
@@ -71,6 +71,11 @@ class BlogDeleteView(DeleteView):
 
 class CommentCreateView(CreateView):
     model = Comment
-    # form_class = CommentForm
+    form_class = CommentForm
     template_name = 'blog/add_comment.html'
-    fields = '__all__'
+
+    def form_valid(self, form):
+        form.instance.post_id = self.kwargs['pk']
+        return super().form_valid(form)
+
+    success_url = reverse_lazy('blog')

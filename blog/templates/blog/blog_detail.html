@@ -65,14 +65,14 @@
                         {% if liked %}
                         <button type="submit" name="post_id" value="{{ post.id }}"
                             class="btn like-btn btn-outline-danger" data-toggle="tooltip" data-placement="bottom"
-                            title="Like">
+                            title="Unlike">
                             <i class="fas fa-thumbs-down"></i>
                             <small class="text-muted">{{ total_likes }} Likes</small>
                         </button>
 
                         {% else %}
                         <button type="submit" name="post_id" value="{{ post.id }}" class="btn like-btn btn-outline-dark"
-                            data-toggle="tooltip" data-placement="bottom" title="Unlike">
+                            data-toggle="tooltip" data-placement="bottom" title="Like">
                             <i class="fas fa-thumbs-up"></i>
                             <small class="text-muted">{{ total_likes }} Likes</small>
                         </button>

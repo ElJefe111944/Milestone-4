@@ -12,26 +12,24 @@
                 <div class="row mb-5">
                     <div class="col-lg-12 text-center">
                         <h1>Add Comment</h1>
-                    </div>                    
-                        <div class="col-lg-12">
-                            <!-- ADD COMMENTS SECTION -->
-                            {% if user.is_authenticated %}
-                            <div class="add-comment">                   
-                                <form action="#" class="commenting-form" method="POST">
-                                    {% csrf_token %}
-                                    <div class="form-group col-md-12">
-                                        {{ form|crispy }}
-                                        <button type="submit" class="btn btn-secondary">Submit Comment</button>
-                                    </div>
-                                </form>
-                            </div>
-                            {% endif %}
-                            <!-- END OF ADD COMMENTS SECTION -->
-                        </div>                                   
-                    <div class="row mt-4">
-                        <a href="{% url 'blog' %}">
-                            <button type="button" class="btn btn-dark">Return</button>
-                        </a>
+                    </div>
+                    <div class="col-lg-12">
+                        <!-- ADD COMMENTS SECTION -->
+                        {% if user.is_authenticated %}
+                        <div class="add-comment">
+                            <form action="#" class="commenting-form" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group col-md-12">
+                                    {{ form|crispy }}
+                                     <a href="{% url 'blog' %}" class="btn btn-dark">
+                                        Return
+                                    </a>
+                                    <button type="submit" class="btn btn-secondary">Submit Comment</button>                                   
+                                </div>
+                            </form>
+                        </div>
+                        {% endif %}
+                        <!-- END OF ADD COMMENTS SECTION -->
                     </div>
                 </div>
             </div>
