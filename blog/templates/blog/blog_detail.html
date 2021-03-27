@@ -113,9 +113,11 @@
                             </div>
                             </div>
                             {% endfor %}
+                            {% if request.user.is_superuser %}
                             <a href="{% url 'add_comment' post.pk %}">
                                 <button type="button" class="btn btn-dark">Add a Comment</button>
                             </a>
+                            {% endif %}
                             </div>
                             <br>
                     {% endif %}
