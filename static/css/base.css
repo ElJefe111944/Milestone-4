@@ -1552,7 +1552,7 @@ STYLE SWITCHER FOR DEMO
 
    =========================================
 
-    1 - NAVBAR
+    1 - NAVBAR & FOOTER
     2 - BUTTONS
     3 - TYPE
     4 - PAGINATION
@@ -1677,6 +1677,7 @@ STYLE SWITCHER FOR DEMO
 .navbar-dark .navbar-text {
   color: rgba(255, 255, 255, 0.5);
 }
+
 
 /*
  * 2. BUTTONS
@@ -3847,3 +3848,4 @@ button.btn.like-btn.btn-outline-danger {
     color: #000;
     border: 1px solid #000;
 }
+
