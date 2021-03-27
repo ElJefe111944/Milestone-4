@@ -52,15 +52,15 @@
                         <p>{{ post.main_content2 }}</p>
                         <h3 class="mb-4 mt-4">{{ post.subheading3 }}</h3>
                         <p>{{ post.main_content3 }}</p>
-                         <p>{{ post.main_content_extra }}</p>
-                    </div>
-                    <div class="title m-2"><span class="text-muted">Created by: {{ post.author }}</span></div>
-                    <div class="date text-muted m-2">
-                        <i class="fas fa-clock"></i> {{ post.publish_date }}
-                    </div>
-                    <!-- LIKE BLOG -->
-                    <form action="{% url 'like-post' post.pk %}" method="POST">
-                        {% csrf_token %}
+                        <p>{{ post.main_content_extra }}</p>
+                        </div>
+                        <div class="title m-2"><span class="text-muted">Created by: {{ post.author }}</span></div>
+                        <div class="date text-muted m-2">
+                            <i class="fas fa-clock"></i> {{ post.publish_date }}                 
+                        </div>
+                        <!-- LIKE BLOG -->
+                        <form action="{% url 'like-post' post.pk %}" method="POST">
+                            {% csrf_token %}
 
                         {% if user.is_authenticated %}
                             <button type="submit" name="post_id" value="{{ post.id }}" class="btn like-btn btn-outline-dark"><i class="fas fa-thumbs-up"></i></button> {{ total_likes }}
@@ -69,15 +69,20 @@
                 </div>
                 {% if request.user.is_superuser %}
                 <div class="row m-1">
-                    <a class="btn btn-sm btn-outline-dark" href="">
+                    <a class="btn btn-sm btn-dark mr-1" href="{% url 'edit_post' post.pk %}">
                         Edit <i class="far fa-edit"></i>
                     </a>
-                    <a class="btn btn-sm btn-outline-dark" href="">
+                    <a class="btn btn-sm btn-danger" href="{% url 'delete_post' post.pk %}">
                         Delete <i class="fas fa-trash"></i>
                     </a>
                     {% endif %}
+                    </div>
+                    <div class="row mt-4">
+                        <a href="{% url 'blog' %}">
+                            <button type="button" class="btn btn-dark">Return</button>
+                        </a>
+                    </div>
                 </div>
-            </div>
         </section>
     </div>
 </div>

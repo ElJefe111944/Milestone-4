@@ -26,6 +26,9 @@
         <div class="container text-center">
             <h2 class="h5 text-uppercase mb-4">Delete Blog</h2>
             <p>Are you sure you want to delete <strong>"{{ post.title }}"?</strong></p>
+            <a href="{% url 'blog' %}">
+                <button type="button" class="btn btn-dark">Return</button>
+            </a>
             <button class="btn btn-danger" type="submit">Delete Blog  <i class="fas fa-trash-alt"></i></button>
         </div>        
     </form>
