@@ -48,9 +48,11 @@
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
+             {% if request.user.is_authenticated %}
              <li class="nav-item">
                 <!-- Link--><a class="nav-link" href="{% url 'blog' %}"><i class="fas fa-blog mr-1"></i> Blog</a>
             </li>
+            {% endif %}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="pagesDropdown3" href="#" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
