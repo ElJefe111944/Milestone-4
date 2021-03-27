@@ -53,31 +53,75 @@
                         <h3 class="mb-4 mt-4">{{ post.subheading3 }}</h3>
                         <p>{{ post.main_content3 }}</p>
                         <p>{{ post.main_content_extra }}</p>
-                        </div>
-                        <div class="title m-2"><span class="text-muted">Created by: {{ post.author }}</span></div>
-                        <div class="date text-muted m-2">
-                            <i class="fas fa-clock"></i> {{ post.publish_date }}                 
-                        </div>
-                        <!-- LIKE BLOG -->
-                        <form action="{% url 'like-post' post.pk %}" method="POST">
-                            {% csrf_token %}
-
+                    </div>
+                    <div class="title m-2"><span class="text-muted">Created by: {{ post.author }}</span></div>
+                    <div class="date text-muted m-2">
+                        <i class="fas fa-clock"></i> {{ post.publish_date }}
+                    </div>
+                    <!-- LIKE BLOG -->
+                    <form action="{% url 'like-post' post.pk %}" method="POST">
+                        {% csrf_token %}
                         {% if user.is_authenticated %}
-                            {% if liked %}
-                            <button type="submit" name="post_id" value="{{ post.id }}" class="btn like-btn btn-outline-danger" data-toggle="tooltip" data-placement="bottom" title="Like">
-                                <i class="fas fa-thumbs-down"></i> 
-                                <small class="text-muted">{{ total_likes }} Likes</small>
-                            </button> 
-                            
-                            {% else %}
-                            <button type="submit" name="post_id" value="{{ post.id }}" class="btn like-btn btn-outline-dark" data-toggle="tooltip" data-placement="bottom" title="Unlike">
-                                <i class="fas fa-thumbs-up"></i>     
-                                <small class="text-muted">{{ total_likes }} Likes</small>
-                            </button>                             
-                        
-                            {% endif %}
+                        {% if liked %}
+                        <button type="submit" name="post_id" value="{{ post.id }}"
+                            class="btn like-btn btn-outline-danger" data-toggle="tooltip" data-placement="bottom"
+                            title="Like">
+                            <i class="fas fa-thumbs-down"></i>
+                            <small class="text-muted">{{ total_likes }} Likes</small>
+                        </button>
+
+                        {% else %}
+                        <button type="submit" name="post_id" value="{{ post.id }}" class="btn like-btn btn-outline-dark"
+                            data-toggle="tooltip" data-placement="bottom" title="Unlike">
+                            <i class="fas fa-thumbs-up"></i>
+                            <small class="text-muted">{{ total_likes }} Likes</small>
+                        </button>
                         {% endif %}
-                    </form>                    
+                        {% endif %}
+                    </form>
+                    <div class="post-comments">
+                        <header>
+                            <h3 class="h6">Post Comments<span class="no-of-comments">(3)</span></h3>
+                        </header>
+                        <div class="comment">
+                            <div class="comment-header d-flex justify-content-between">
+                                <div class="user d-flex align-items-center">                                    
+                                    <div class="title"><strong>Jabi Hernandiz</strong> &nbsp; <span class="date">May 2016</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comment-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- COMMENTS SECTION -->
+                    <div class="add-comment">
+                        <header>
+                            <h3 class="h6">Leave a reply</h3>
+                        </header>
+                        <form action="#" class="commenting-form">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" name="username" id="username" placeholder="Name"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="email" name="username" id="useremail"
+                                        placeholder="Email Address (will not be published)" class="form-control">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <textarea name="usercomment" id="usercomment" placeholder="Type your comment"
+                                        class="form-control"></textarea>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <button type="submit" class="btn btn-secondary">Submit Comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- END OF COMMENTS SECTION -->
                 </div>
                 {% if request.user.is_superuser %}
                 <div class="row m-1">
@@ -88,13 +132,13 @@
                         Delete <i class="fas fa-trash"></i>
                     </a>
                     {% endif %}
-                    </div>
-                    <div class="row mt-4">
-                        <a href="{% url 'blog' %}">
-                            <button type="button" class="btn btn-dark">Return</button>
-                        </a>
-                    </div>
                 </div>
+                <div class="row mt-4">
+                    <a href="{% url 'blog' %}">
+                        <button type="button" class="btn btn-dark">Return</button>
+                    </a>
+                </div>
+            </div>
         </section>
     </div>
 </div>
