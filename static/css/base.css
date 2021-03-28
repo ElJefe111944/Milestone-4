@@ -3866,3 +3866,8 @@ button.btn.like-btn.btn-outline-danger {
     border: 1px solid #000;
 }
 
+a.btn.btn-outline-danger:hover {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}

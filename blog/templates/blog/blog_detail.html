@@ -77,53 +77,54 @@
                             <small class="text-muted">{{ total_likes }} Likes</small>
                         </button>
                         {% endif %}
-                        {% endif %}                       
+                        {% endif %}
                     </form>
-                    <!-- COMMENTS SECTION -->   
-                    <div class="col-lg-12">          
-                    {% if not post.comments.all %}
-                     <div class="post-comments">
-                        <hr>
-                        <header>
-                            <h3 class="h6">No Comments Yet..... 
-                                <a href="{% url 'add_comment' post.pk %}">
-                                    <button type="button" class="btn btn-dark">Add a Comment</button>
-                                </a>
-                            </h3>
-                        </header>
-                        <hr>
-                    </div>
-                    {% else %}    
-                    <div class="post-comments">
-                        <hr>
-                        <header>
-                            <h3 class="h6">Comments</h3>
-                        </header>
-                        {% for comment in post.comments.all %}
-                        <hr>
-                        <div class="comment">
-                            <div class="comment-header d-flex justify-content-between">
-                                <div class="user d-flex align-items-center">                                    
-                                    <div class="title"><strong>{{ comment.name }}</strong> &nbsp;- <span class="date text-muted">{{ comment.date_added }}</span>
+                    <!-- COMMENTS SECTION -->
+                    <div class="col-lg-12">
+                        {% if not post.comments.all %}
+                        <div class="post-comments">
+                            <hr>
+                            <header>
+                                <h3 class="h6">No Comments Yet.....
+                                    <a href="{% url 'add_comment' post.pk %}">
+                                        <p class="btn btn-dark">Add a Comment</p>
+                                    </a>
+                                </h3>
+                            </header>
+                            <hr>
+                        </div>
+                        {% else %}
+                        <div class="post-comments">
+                            <hr>
+                            <header>
+                                <h3 class="h6">Comments</h3>
+                            </header>
+                            {% for comment in post.comments.all %}
+                            <hr>
+                            <div class="comment">
+                                <div class="comment-header d-flex justify-content-between">
+                                    <div class="user d-flex align-items-center">
+                                        <div class="title"><strong>{{ comment.name }}</strong> &nbsp;- <span
+                                                class="date text-muted">{{ comment.date_added }}</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="comment-body">
-                                <p>{{ comment.comment }}</p>
-                            </div>
+                                <div class="comment-body">
+                                    <p>{{ comment.comment }}</p>
+                                </div>
                             </div>
                             {% endfor %}
                             {% if request.user.is_superuser %}
                             <a href="{% url 'add_comment' post.pk %}">
-                                <button type="button" class="btn btn-dark">Add a Comment</button>
+                                <p class="btn btn-dark">Add a Comment</p>
                             </a>
                             {% endif %}
-                            </div>
-                            <br>
-                    {% endif %}
-                <!-- END OF COMMENTS SECTION -->
+                        </div>
+                        <br>
+                        {% endif %}
+                        <!-- END OF COMMENTS SECTION -->
+                    </div>
                 </div>
-                </div>  
                 {% if request.user.is_superuser %}
                 <div class="row m-1">
                     <a class="btn btn-sm btn-dark mr-1" href="{% url 'edit_post' post.pk %}">
@@ -131,12 +132,12 @@
                     </a>
                     <a class="btn btn-sm btn-danger" href="{% url 'delete_post' post.pk %}">
                         Delete <i class="fas fa-trash"></i>
-                    </a>
-                    {% endif %}
+                    </a>                    
                 </div>
+                {% endif %}
                 <div class="row mt-4">
                     <a href="{% url 'blog' %}">
-                        <button type="button" class="btn btn-dark">Return</button>
+                        <p class="btn btn-dark">Return</p>
                     </a>
                 </div>
             </div>

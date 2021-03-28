@@ -21,9 +21,7 @@
                                 {% csrf_token %}
                                 <div class="form-group col-md-12">
                                     {{ form|crispy }}
-                                     <a href="{% url 'blog' %}" class="btn btn-dark">
-                                        Return
-                                    </a>
+                                    <a href="{% url 'blog' %}" class="btn btn-outline-danger">Cancel</a>
                                     <button type="submit" class="btn btn-secondary">Submit Comment</button>                                   
                                 </div>
                             </form>

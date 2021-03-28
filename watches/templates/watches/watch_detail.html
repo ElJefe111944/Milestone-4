@@ -47,11 +47,12 @@
                         <ul class="list-inline mb-2">
                             {% if watch.rating %}
                             <li class="list-inline-item m-0 text-muted"><i class="fas fa-star small text-warning">
-                                    {{ watch.rating }} / 10</i></li>
-                            {% else %}
-                            <li class="list-inline-item m-0"><i class="fas fa-star small text-danger"> No Rating</i>
-                                {% endif %}
+                                    {{ watch.rating }} / 10</i>
+                            
                             </li>
+                            {% else %}
+                            <li class="list-inline-item m-0"><i class="fas fa-star small text-danger"> No Rating</i></li>
+                            {% endif %}
                         </ul>
                         <!--end of Rating  -->
                         <h1>{{ watch.name }}</h1>
@@ -63,8 +64,7 @@
                             <div class="row align-items-stretch mb-4">
                                 <!-- QUANTITY SELECTOR -->
                                 <div class="col-sm-5 pr-sm-0">
-                                    <div
-                                        class="border d-flex align-items-center justify-content-between py-1 px-3 bg-white border-white">
+                                    <div class="border d-flex align-items-center justify-content-between py-1 px-3 bg-white border-white">
                                         <span class="small text-uppercase text-gray mr-4 no-select">Quantity</span>
                                         <div class="quantity">
                                             <button class="dec-btn p-0 decrement-qty" data-item_id="{{ watch.id }}"
@@ -96,19 +96,22 @@
                             </a>
                             <a class="btn btn-sm btn-outline-dark" href="{% url 'delete_watch' watch.id %}">
                                 Delete <i class="fas fa-trash"></i>
-                            </a>
-                            {% endif %}
+                            </a>                          
                         </div>
+                        {% endif %}
                         <br>
                         <ul class="list-unstyled small d-inline-block">
                             <li class="px-3 py-2 mb-1 bg-white"><strong class="text-uppercase">SKU:</strong><span
-                                    class="ml-2 text-muted">{{ watch.sku }}</span></li>
+                                    class="ml-2 text-muted">{{ watch.sku }}</span>
+                            </li>
                             <li class="px-3 py-2 mb-1 bg-white text-muted"><strong
                                     class="text-uppercase text-dark">Brand:</strong><a class="reset-anchor ml-2"
-                                    href="#">{{ watch.brand.friendly_name }}</a></li>
+                                    href="#">{{ watch.brand.friendly_name }}</a>
+                            </li>
                             <li class="px-3 py-2 mb-1 bg-white text-muted"><strong
                                     class="text-uppercase text-dark">Category:</strong><a class="reset-anchor ml-2"
-                                    href="#">{{ watch.category.friendly_name }}</a></li>
+                                    href="#">{{ watch.category.friendly_name }}</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

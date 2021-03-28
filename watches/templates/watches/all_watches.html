@@ -30,7 +30,9 @@
                         class="small text-uppercase font-weight-bold">Brands</strong></div>
                 <ul class="list-unstyled small text-muted pl-lg-4 font-weight-normal">
                     {% for watch in watches %}
-                    <li class="mb-2"><a class="reset-anchor" href="{% url 'watch_detail' watch.id %}">{{ watch.brand.friendly_name }} - {{ watch.name }}</a></li>
+                        <li class="mb-2">
+                            <a class="reset-anchor" href="{% url 'watch_detail' watch.id %}">{{ watch.brand.friendly_name }} - {{ watch.name }}</a>
+                        </li>
                     {% endfor %}
          
                 </ul>
@@ -46,7 +48,7 @@
                 <div class="row mb-3 align-items-center">
                     <div class="col-lg-6 mb-2 mb-lg-0">
                         {% if search_term or current_categories or current_sorting != 'None_None' %}
-                        <span class="small"><a href="{% url 'watches' %}">See All Watches</a></span>
+                            <span class="small"><a href="{% url 'watches' %}">See All Watches</a></span>
                         {% endif %}
                         <p class="text-small text-muted mb-0">{{ watches|length }} results found.</p>
                     </div>                      
@@ -73,37 +75,37 @@
                             <div class="mb-3 position-relative">
                                 {% if watch.image %}
                                     {% if watch.label %}
-                                <div class="badge text-white badge-danger">{{ watch.label }}</div>
+                                        <div class="badge text-white badge-danger">{{ watch.label }}</div>
                                     {% else %}
-                                    <div class="badge text-white badge-secondary"></div>
+                                        <div class="badge text-white badge-secondary"></div>
                                     {% endif %}                                
                                 <a class="d-block" href="{% url 'watch_detail' watch.id %}">
                                     <img class="img-fluid w-100 h-100" src="{{ watch.image.url }}" alt="{{ watch.name }}">
                                 </a>
                                 {% else %}
-                                <div class="badge text-white badge-secondary"></div><a class="d-block"
-                                    href="{% url 'watch_detail' watch.id %}"><img class="img-fluid w-100 h-100"
-                                        src="{{ MEDIA_URL }}noimage.png" alt="{{ watch.name }}"></a>
+                                    <div class="badge text-white badge-secondary"></div><a class="d-block"
+                                        href="{% url 'watch_detail' watch.id %}"><img class="img-fluid w-100 h-100"
+                                            src="{{ MEDIA_URL }}noimage.png" alt="{{ watch.name }}"></a>
                                 {% endif %}
                                 <!-- DISPLAYED ON HOVER  -->
                                 <div class="product-overlay">
                                     <ul class="mb-0 list-inline">
                                         {% if request.user.is_superuser %}
-                                        <li class="list-inline-item m-0 p-0">
-                                            <a class="btn btn-sm btn-outline-dark" href="{% url 'edit_watch' watch.id %}">
-                                                <i class="far fa-edit"></i>
-                                            </a>
-                                        </li>
+                                            <li class="list-inline-item m-0 p-0">
+                                                <a class="btn btn-sm btn-outline-dark" href="{% url 'edit_watch' watch.id %}">
+                                                    <i class="far fa-edit"></i>
+                                                </a>
+                                            </li>
                                         {% endif %}                                        
-                                        <li class="list-inline-item m-0 p-0">
-                                            <a class="btn btn-sm btn-dark" href="{% url 'watch_detail' watch.id %}">More Information</a>
-                                        </li>
+                                            <li class="list-inline-item m-0 p-0">
+                                                <a class="btn btn-sm btn-dark" href="{% url 'watch_detail' watch.id %}">More Information</a>
+                                            </li>
                                         {% if request.user.is_superuser %}
-                                        <li class="list-inline-item mr-0">
-                                            <a class="btn btn-sm btn-outline-dark" href="{% url 'delete_watch' watch.id %}">
-                                                <i class="fas fa-trash"></i>
-                                            </a>
-                                        </li>
+                                            <li class="list-inline-item mr-0">
+                                                <a class="btn btn-sm btn-outline-dark" href="{% url 'delete_watch' watch.id %}">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </li>
                                         {% endif %}
                                     </ul>
                                 </div>
@@ -119,12 +121,14 @@
                             <!-- Rating -->
                             <ul class="list-inline mb-2">
                                 {% if watch.rating %}
-                                <li class="list-inline-item m-0 text-muted"><i class="fas fa-star small text-warning">
-                                        {{ watch.rating }} / 10</i></li>
+                                    <li class="list-inline-item m-0 text-muted"><i class="fas fa-star small text-warning">
+                                        {{ watch.rating }} / 10</i>
+                                    </li>
                                 {% else %}
-                                <li class="list-inline-item m-0"><i class="fas fa-star small text-danger"> No Rating</i>
+                                    <li class="list-inline-item m-0"><i class="fas fa-star small text-danger"> No Rating</i>
+                                    </li>
                                 {% endif %}
-                                </li>
+                               
                             </ul>
                             <!--end of Rating  -->
                         </div>
@@ -136,12 +140,21 @@
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center justify-content-lg-end">
                             <li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span
-                                        aria-hidden="true">«</span></a></li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span
-                                        aria-hidden="true">»</span></a></li>
+                                        aria-hidden="true">«</span></a>
+                            </li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#">1</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">2</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">3</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next"><span
+                                        aria-hidden="true">»</span></a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -152,7 +165,7 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript">
+<script>
     $('#sort-selector').change(function(){
         var selector = $(this);
         var currentUrl = new URL(window.location);
