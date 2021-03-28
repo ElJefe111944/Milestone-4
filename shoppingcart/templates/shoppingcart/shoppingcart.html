@@ -22,13 +22,15 @@
             </div>
         </div>
     </section>
+</div>
+<div class="container">
     <section class="py-5">
         <h2 class="h5 text-uppercase mb-4">Shopping cart</h2>
         <div class="row">
             <div class="col-lg-8 mb-4 mb-lg-0">
                 <!-- CART TABLE-->
-                {% if shoppingcart_items %}                
-                 <div class="table-responsive mb-4">
+                {% if shoppingcart_items %}
+                <div class="table-responsive mb-4">
                     <table class="table">
                         <thead class="bg-light">
                             <tr>
@@ -50,14 +52,17 @@
                                     <div class="media align-items-center">
                                         <a class="reset-anchor d-block animsition-link" href="detail.html">
                                             {% if item.watch.image %}
-                                            <img class="img-fluid" src="{{ item.watch.image.url }}" alt="{{ item.watch.name }}">
+                                            <img class="img-fluid" src="{{ item.watch.image.url }}"
+                                                alt="{{ item.watch.name }}">
                                             {% else %}
-                                            <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.watch.name }}">
+                                            <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                                                alt="{{ item.watch.name }}">
                                             {% endif %}
                                         </a>
                                         <div class="media-body ml-3">
                                             <strong class="h6">
-                                                <a class="reset-anchor animsition-link" href="detail.html">{{ item.watch.name }}</a>
+                                                <a class="reset-anchor animsition-link"
+                                                    href="detail.html">{{ item.watch.name }}</a>
                                             </strong>
                                         </div>
                                     </div>
@@ -67,24 +72,31 @@
                                 </td>
                                 <!-- QUANTITY SELECTOR -->
                                 <td class="align-middle border-0">
-                                    <form class="form update-form" method="POST" action="{% url 'update_shoppingcart' item.item_id %}">
+                                    <form class="form update-form" method="POST"
+                                        action="{% url 'update_shoppingcart' item.item_id %}">
                                         {% csrf_token %}
                                         <div class="border d-flex align-items-center justify-content-between px-3"><span
                                                 class="small text-uppercase text-gray headings-font-family">Quantity</span>
                                             <div class="quantity">
-                                                <button class="dec-btn p-0 decrement-qty" data-item_id="{{ item.item.id }}"
-                                                    id="decrement-qty_{{ item.item.id }}"><i class="fas fa-caret-left"></i></button>
-                                                <input class="form-control qty_input border-0 shadow-0 p-0" type="number" value="{{ item.quantity }}"
-                                                    min="1" max="99" name="quantity" data-item_id="{{ item.item.id }}" id="id_qty_{{ item.item.id }}">
-                                                <button class="inc-btn p-0 increment-qty" data-item_id="{{ item.item.id }}"
-                                                    id="increment-qty_{{ item.item.id }}"><i class="fas fa-caret-right"></i></button>
+                                                <button class="dec-btn p-0 decrement-qty"
+                                                    data-item_id="{{ item.item.id }}"
+                                                    id="decrement-qty_{{ item.item.id }}"><i
+                                                        class="fas fa-caret-left"></i></button>
+                                                <input class="form-control qty_input border-0 shadow-0 p-0"
+                                                    type="number" value="{{ item.quantity }}" min="1" max="99"
+                                                    name="quantity" data-item_id="{{ item.item.id }}"
+                                                    id="id_qty_{{ item.item.id }}">
+                                                <button class="inc-btn p-0 increment-qty"
+                                                    data-item_id="{{ item.item.id }}"
+                                                    id="increment-qty_{{ item.item.id }}"><i
+                                                        class="fas fa-caret-right"></i></button>
                                             </div>
                                         </div>
                                     </form>
                                     <!-- UPDATE BTN -->
-                                     <a class="update-link text-info"><small>Update</small></a>
+                                    <a class="update-link text-info"><small>Update</small></a>
                                 </td>
-                                 <!-- END OF QUANTITY SELECTOR -->
+                                <!-- END OF QUANTITY SELECTOR -->
                                 <td class="align-middle border-0">
                                     <p class="mb-0 small">£{{ item.watch.price | calc_subtotal:item.quantity }}</p>
                                 </td>
@@ -95,26 +107,28 @@
                                     </a>
                                 </td>
                             </tr>
-                            {% endfor %}
+
                         </tbody>
+                        {% endfor %}
                     </table>
-                </div> 
+                </div>
                 <!-- END OF CART TABLE -->
                 {% else %}
                 <p class="lead mb-5">Your shopping bag is currently empty.</p>
-                    <a href="{% url 'watches' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span class="text-uppercase">Keep Shopping</span>
-                    </a>
+                <a href="{% url 'watches' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="text-uppercase">Keep Shopping</span>
+                </a>
                 {% endif %}
                 {% if shoppingcart_items %}
                 <!-- CART NAV-->
                 <div class="bg-light px-4 py-3">
                     <div class="row align-items-center text-center">
                         <div class="col-md-6 mb-3 mb-md-0 text-md-left"><a class="btn btn-link p-0 text-dark btn-sm"
-                                href="{% url 'watches' %}"><i class="fas fa-long-arrow-alt-left mr-2"> </i>Continue shopping</a>
+                                href="{% url 'watches' %}"><i class="fas fa-long-arrow-alt-left mr-2"> </i>Continue
+                                shopping</a>
                         </div>
                         <div class="col-md-6 text-md-right"><a class="btn btn-outline-dark btn-sm"
                                 href="{% url 'checkout' %}">Procceed to checkout<i
@@ -131,33 +145,37 @@
                         <ul class="list-unstyled mb-0">
                             <li class="d-flex align-items-center justify-content-between">
                                 <strong class="text-uppercase small font-weight-bold">Subtotal</strong>
-                                <span class="text-muted small">£{{ item.watch.price | calc_subtotal:item.quantity }}</span>
+                                <span
+                                    class="text-muted small">£{{ item.watch.price | calc_subtotal:item.quantity }}</span>
                             </li>
                             <li class="border-bottom my-2"></li>
-                                 <li class="d-flex align-items-center justify-content-between">
+                            <li class="d-flex align-items-center justify-content-between">
                                 <strong class="text-uppercase small font-weight-bold">Delivery</strong>
                                 <span class="text-muted small">£{{ delivery |floatformat:2 }}</span>
-                                </li>
-                          {% if request.user.is_authenticated %}
+                            </li>
+                            {% if request.user.is_authenticated %}
                             <li class="border-bottom my-2"></li>
-                            <li class="d-flex align-items-center justify-content-between">                               
-                                <strong class="text-uppercase small font-weight-bold">Member Discount</strong><span>(£{{ discount|floatformat:2 }})</span>
-                            
+                            <li class="d-flex align-items-center justify-content-between">
+                                <strong class="text-uppercase small font-weight-bold">Member
+                                    Discount</strong><span>(£{{ discount|floatformat:2 }})</span>
+
                             </li>
-                            <li class="border-bottom my-2"></li>                           
-                            <li class="d-flex align-items-center justify-content-between">  
-                                <strong class="text-uppercase font-weight-bold">Total</strong><strike>£{{ item.watch.price | calc_subtotal:item.quantity }}</strike><span class="font-weight-bold">£{{ grand_total|floatformat:2 }}</span>
-                              
+                            <li class="border-bottom my-2"></li>
+                            <li class="d-flex align-items-center justify-content-between">
+                                <strong
+                                    class="text-uppercase font-weight-bold">Total</strong><strike>£{{ item.watch.price | calc_subtotal:item.quantity }}</strike><span
+                                    class="font-weight-bold">£{{ grand_total|floatformat:2 }}</span>
+
                             </li>
-                            {% else %}  
+                            {% else %}
                             <li class="border-bottom my-2"></li>
                             <li class="d-flex align-items-center justify-content-between">
                                 <strong class="text-uppercase font-weight-bold">Total</strong><span
                                     class="font-weight-bold">£{{ grand_total|floatformat:2 }}</span>
-                            
+
                             </li>
                             {% endif %}
-                            </ul>
+                        </ul>
                         {% endfor %}
                     </div>
                 </div>
@@ -165,6 +183,7 @@
             {% else %}
             <!-- SUGGESTED ITEMS -->
             {% endif %}
+        </div>
         </div>
     </section>
 </div>

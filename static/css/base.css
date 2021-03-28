@@ -2573,7 +2573,6 @@ a.text-primary:hover, a.text-primary:focus {
   padding: 0.5rem 0.75rem;
   line-height: 1.25;
   color: #111111;
-  background-color: none;
   border: 1px solid #eee;
   margin: 0.2rem;
   transition: all 0.3s;
@@ -3599,6 +3598,16 @@ code {
     overflow-y: auto;
 }
 
+a.btn.btn-outline-dark.btn-sm {
+    color: #fafafa;
+    background-color: #000;
+}
+
+a.btn.btn-outline-dark.btn-sm:hover {
+    color: #fafafa;
+    background-color: #dcb14a;
+    border-color: #dcb14a;
+}
 
 /*
 * 14. STRIPE & CHECKOUT TEMPLATE
