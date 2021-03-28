@@ -11,7 +11,7 @@
                 <div class="col-lg-8">
                     <p class="text-uppercase mb-2 hero-title">New Inspiration 2021</p>
                     <h2 class="h2 text-uppercase mb-3">Free delivery on orders over £{{ free_delivery_threshold }}!</h2>
-                    <a href="{% url 'watches' %}"><button type="button" class="btn btn-outline-primary hero-btn">Browse our collection</button></a>
+                    <a href="{% url 'watches' %}"><p class="btn btn-outline-primary hero-btn">Browse our collection</p></a>
                 </div>
             </div>
         </div>           
@@ -27,15 +27,15 @@
 
         <div class="row">
             <div class="col-md-6 mb-4 mb-md-0">
-                <a class="category-item" href="{% url 'watches' %}?category=men">
+                <a class="category-item hero-btn" href="{% url 'watches' %}?category=men">
                     <img class="img-fluid" src="media/men-watches.jpg" alt="">
-                    <button class="category-item-title btn btn-outline-primary hero-btn">For Men</button>
+                    <p class="category-item-title btn btn-outline-primary hero-btn">For Men</p>
                 </a> 
             </div>
             <div class="col-md-6 mb-4 mb-md-0">
                 <a class="category-item" href="{% url 'watches' %}?category=women">
                     <img class="img-fluid" src="media/women-watches.jpg" alt="">
-                    <button class="category-item-title btn btn-outline-primary category-btn">For Women</button>
+                    <p class="category-item-title btn btn-outline-primary category-btn">For Women</p>
                 </a>
             </div>
         </div>

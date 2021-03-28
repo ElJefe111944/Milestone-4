@@ -208,6 +208,8 @@ button.btn.btn-outline-primary.hero-btn:hover {
     border: 3px solid;
 }
 
+
+
 /*
 *
 * ==========================================
@@ -241,20 +243,35 @@ button.btn.btn-outline-primary.hero-btn:hover {
   font-size: 0.8rem;
 }
 
-button.category-item-title.btn.btn-outline-primary.category-btn {
+ p.btn.btn-outline-primary.hero-btn:hover {
+    color: #dcb14a;
+    background-color: transparent;
+    background-image: none;
+    border-color: #dcb14a;
+    border: 3px solid;
+}
+
+ p.btn.btn-outline-primary.hero-btn {
+    color: #fafafa;
+    background-color: transparent;
+    background-image: none;
+    border-color: #fafafa;
+    border: 3px solid;
+}
+
+p.category-item-title.btn.btn-outline-primary.category-btn {
     color: #000;
     border: 3px solid;
     border-color: #000;
     background-color: transparent;
 }
 
-button.category-item-title.btn.btn-outline-primary.category-btn:hover {
+p.category-item-title.btn.btn-outline-primary.category-btn:hover {
     color: #dcb14a;
     border: 3px solid;
     border-color: #dcb14a;
     background-color: transparent;
 }
-
 
 .category-item:hover img {
   opacity: 0.7;
