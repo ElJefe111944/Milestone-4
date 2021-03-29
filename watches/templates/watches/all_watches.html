@@ -12,7 +12,7 @@
             <div class="col-lg-6 text-lg-right">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-lg-end mb-0 px-0">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'homepage' %}">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">All Watches</li>
                     </ol>
                 </nav>
@@ -111,9 +111,8 @@
                                 </div>
                                 <!-- END OF DISPLAYED ON HOVER  -->
                             </div>
-                            <h6> <a class="reset-anchor" href="detail.html">{{ watch.name }}</a></h6>
-                            <h5 class="text-muted"> <a class="reset-anchor"
-                                    href="detail.html">{{ watch.brand.friendly_name }}</a></h5>
+                            <h6> <a class="reset-anchor" href="{% url 'watch_detail' watch.id %}">{{ watch.name }}</a></h6>
+                            <h5 class="text-muted">{{ watch.brand.friendly_name }}</h5>
                             <p class="text-muted my-0">£{{ watch.price }}</p>
                             <p class="small text-muted my-1">Category: 
                                 <a class="reset-anchor ml-2" href="{% url 'watches' %}?category={{ watch.category.name }}">{{ watch.category.friendly_name }}</a>
@@ -135,28 +134,7 @@
                     </div>
                     {% endfor %}
                     <!-- End of All Watches -->
-                </div>
-                    <!-- PAGINATION-->
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-center justify-content-lg-end">
-                            <li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span
-                                        aria-hidden="true">«</span></a>
-                            </li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">1</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next"><span
-                                        aria-hidden="true">»</span></a>
-                            </li>
-                        </ul>
-                    </nav>
+                </div>             
                 </div>
             </div>
         </div>

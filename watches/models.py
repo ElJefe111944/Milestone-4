@@ -53,7 +53,10 @@ class Watch(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     discount = models.FloatField(blank=True, null=True)
     label = models.CharField(
-        choices=LABEL, max_length=20, default='SOME STRING', blank=True, null=True)
+        choices=LABEL, max_length=20, 
+        default='SOME STRING', 
+        blank=True, null=True
+    )
     rating = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)

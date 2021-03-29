@@ -16,14 +16,14 @@
                                         <div class="owl-stage" style="width: 1680px;">
                                             {% if watch.image %}
                                             <div class="owl-item active" style="width: 420px;"><a class="d-block"
-                                                    href="../media/product-detail-1.jpg" data-lightbox="product"
+                                                    href="{% url 'watch_detail' watch.id %}" data-lightbox="product"
                                                     title="Product item 1"><img class="img-fluid"
                                                         src="{{ watch.image.url }}" alt="{{ watch.name }}">
                                                 </a>
                                             </div>
                                             {% else %}
                                             <div class="owl-item active" style="width: 420px;"><a class="d-block"
-                                                    href="../media/product-detail-1.jpg" data-lightbox="product"
+                                                    href="{% url 'watch_detail' watch.id %}" data-lightbox="product"
                                                     title="Product item 1"><img class="img-fluid"
                                                         src="{{ MEDIA_URL }}noimage.png" alt="{{ watch.name }}">
                                                 </a>
@@ -122,8 +122,7 @@
                                     href="#">{{ watch.category.friendly_name }}</a>
                             </li>
                         </ul>
-                    </div>
-                     
+                    </div>                    
                       
                     <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
                         {% if not watch.reviews.all %}
@@ -171,7 +170,7 @@
                                                             class="fas fa-star small text-danger">No Rating give </i></li>
                                                     {% endif %}
                                                 </ul>
-                                                <p class="text-small mb-0 text-muted">{{ review.review }}</p>
+                                                <p class="text-small mb-0 text-muted">{{ review.review }}</p>                                           
                                             </div>
                                         </div>
                                     </div>

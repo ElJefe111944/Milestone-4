@@ -3731,7 +3731,7 @@ button.btn.like-btn.btn-outline-dark {
     border-color: transparent;
 }
 
-button.btn.like-btn.btn-outline-danger {
+button.btn.like-btn.btn-outline-warning {
     border-color: transparent;
 }
 
@@ -3741,7 +3741,7 @@ button.btn.like-btn.btn-outline-danger {
   
 }
 
-.btn-outline-danger:hover {
+.btn-outline-warning:hover {
     color: #dcb14a;
     background-color: transparent;
   
@@ -3753,7 +3753,7 @@ button.btn.like-btn.btn-outline-danger {
     border-color: transparent;
 }
 
-.btn-outline-danger:not(:disabled):not(.disabled):active, .btn-outline-dark:not(:disabled):not(.disabled).active, .show > .btn-outline-dark.dropdown-toggle {
+.btn-outline-warning:not(:disabled):not(.disabled):active, .btn-outline-dark:not(:disabled):not(.disabled).active, .show > .btn-outline-dark.dropdown-toggle {
     color: #dcb14a;
     background-color: transparent;
     border-color: transparent;
@@ -3766,7 +3766,7 @@ button.btn.like-btn.btn-outline-danger {
     border: 1px solid #000;
 }
 
-a.btn.btn-outline-danger:hover {
+a.btn.btn-outline-warning:hover {
     color: #fff;
     background-color: #dc3545;
     border-color: #dc3545;
