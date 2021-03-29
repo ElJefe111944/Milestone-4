@@ -3758,6 +3758,17 @@ button.btn.like-btn.btn-outline-warning {
     background-color: transparent;
     border-color: transparent;
 }
+.btn-outline-warning:focus {
+    color: #fff;
+    background: transparent;
+    text-decoration: none;
+}
+
+.btn-outline-dark:focus {
+    color: #fff;
+    background: transparent;
+    text-decoration: none;
+}
 
 /*-- Add Blog --*/
 
