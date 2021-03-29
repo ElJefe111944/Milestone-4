@@ -3552,10 +3552,6 @@ select option[value=""] {
     color: #a5a7a8!important;
 }
 
-label.requiredField {
-    display: none;
-}
-
 /*
 * 15 - Preloader
 */
@@ -3784,4 +3780,22 @@ a.btn.btn-outline-warning:hover {
     color: #fff;
     background-color: #dc3545;
     border-color: #dc3545;
+}
+
+/*-- Blog comment btn --*/
+a.btn.btn-light.btn-sm.comment-btn {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+a.btn.btn-light.btn-sm.comment-btn:hover {
+    background-color: transparent;
+    color: #d6a32a;
+    border-color: ;
+}
+
+a.btn.btn-light.btn-sm.comment-btn:focus {
+    background-color: transparent;
+    color: #d6a32a;
+    border-color: transparent;
 }

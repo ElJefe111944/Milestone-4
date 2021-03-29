@@ -106,26 +106,26 @@
                                     <div class="user d-flex align-items-center">
                                         <div class="title"><strong>{{ comment.name }}</strong> &nbsp;- <span
                                                 class="date text-muted">{{ comment.date_added }}</span>
+                                            {% if request.user.is_superuser %}
+                                            &nbsp; <a href="{% url 'delete_comment' comment.pk %}"
+                                                class="reset-anchor remove-item">
+                                                <i class="fas fa-trash-alt small text-muted"></i>
+                                            </a>
+                                            {% endif %}
+                                            {% if request.user.is_superuser %}
+                                            <a href="{% url 'add_comment' post.pk %}" class="btn btn-light btn-sm comment-btn">
+                                                <i class="fas fa-comments"></i>
+                                            </a>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="comment-body">
-                                    <p>{{ comment.comment }}
-                                        {% if request.user.is_superuser %}                                        
-                                        &nbsp; <a href="{% url 'delete_comment' comment.pk %}" class="reset-anchor remove-item">
-                                            <i class="fas fa-trash-alt small text-muted"></i>
-                                        </a>
-                                        {% endif %}
-                                    </p>
-                               
+                                    <p>{{ comment.comment }}</p>
                                 </div>
                             </div>
                             {% endfor %}
-                            {% if request.user.is_superuser %}
-                            <a href="{% url 'add_comment' post.pk %}">
-                                <p class="btn btn-dark">Add a Comment</p>
-                            </a>
-                            {% endif %}
+
                         </div>
                         <br>
                         {% endif %}
@@ -139,7 +139,7 @@
                     </a>
                     <a class="btn btn-sm btn-danger" href="{% url 'delete_post' post.pk %}">
                         Delete <i class="fas fa-trash"></i>
-                    </a>                    
+                    </a>
                 </div>
                 {% endif %}
                 <div class="row mt-4">
@@ -151,6 +151,4 @@
         </section>
     </div>
 </div>
-
- 
 {% endblock %}
