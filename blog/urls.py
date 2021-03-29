@@ -3,11 +3,12 @@ from django.urls import path
 from .views import (
     BlogHomeView, BlogDetailView, BlogCreateView,
     BlogUpdateView, BlogDeleteView, LikeView,
-    CommentCreateView  
+    CommentCreateView, CommentDeleteView  
     )
 
 
-urlpatterns = [ 
+urlpatterns = [
+    path('post/<int:pk>/delete_comment/', CommentDeleteView.as_view(), name='delete_comment'),
     path('post/<int:pk>/add_comment/', CommentCreateView.as_view(), name='add_comment'),   
     path('add_post', BlogCreateView.as_view(), name='add_post'),
     path('post/<int:pk>/', BlogDetailView.as_view(), name='blog_detail'),

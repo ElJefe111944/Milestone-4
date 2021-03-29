@@ -110,7 +110,14 @@
                                     </div>
                                 </div>
                                 <div class="comment-body">
-                                    <p>{{ comment.comment }}</p>
+                                    <p>{{ comment.comment }}
+                                        {% if request.user.is_superuser %}                                        
+                                        &nbsp; <a href="{% url 'delete_comment' comment.pk %}" class="reset-anchor remove-item">
+                                            <i class="fas fa-trash-alt small text-muted"></i>
+                                        </a>
+                                        {% endif %}
+                                    </p>
+                               
                                 </div>
                             </div>
                             {% endfor %}
