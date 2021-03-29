@@ -203,6 +203,11 @@ button.btn.btn-outline-primary.hero-btn:hover {
 * ==========================================
 *
 */
+.men-cat-image {
+     background: url('/media/landing-image.jpg');
+}
+
+
 .category-item {
   display: block;
   position: relative;
