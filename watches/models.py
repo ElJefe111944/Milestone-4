@@ -48,6 +48,7 @@ class Watch(models.Model):
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=254)
+    watch_information = models.TextField(default='BASIC INFORMATION')
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     discount = models.FloatField(blank=True, null=True)

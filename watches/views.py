@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
-
-from .models import Watch, Category
-from .forms import ProductForm
+from django.views.generic.edit import CreateView
+from .models import Watch, Category, Review
+from .forms import ProductForm, ReviewForm
 
 # Create your views here.
 
@@ -143,3 +144,15 @@ def delete_watch(request, watch_id):
     messages.success(request, 'Watch successfully deleted.')
 
     return redirect(reverse('watches'))
+
+
+class ReviewCreateView(CreateView):
+    model = Review
+    form_class = ReviewForm
+    template_name = 'watches/add_review.html'
+
+    def form_valid(self, form):
+        form.instance.watch_id = self.kwargs['pk']
+        return super().form_valid(form)
+
+    success_url = reverse_lazy('watches')
