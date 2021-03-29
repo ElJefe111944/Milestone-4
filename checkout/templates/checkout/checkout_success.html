@@ -15,9 +15,7 @@
                 <div class="col-lg-6 text-lg-right">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-lg-end mb-0 px-0">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item"><a href="cart.html">Cart</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                            <li class="breadcrumb-item"><a href="{% url 'homepage' %}">Home</a></li> 
                         </ol>
                     </nav>
                 </div>
@@ -146,17 +144,17 @@
                         <ul class="list-unstyled mb-0">
                             <li class="d-flex align-items-center justify-content-between">
                                 <strong class="text-uppercase small font-weight-bold">Order Total:</strong>
-                                <span class="text-muted small">£{{ order.order_total }}</span>
+                                <span class="text-muted small">£{{ order.order_total|floatformat:2 }}</span>
                             </li>
                             <li class="border-bottom my-2"></li>
                             <li class="d-flex align-items-center justify-content-between">
                                 <strong class="text-uppercase small font-weight-bold">Delivery Total:</strong>
-                                <span class="text-muted small">£{{ order.delivery_cost }}</span>
+                                <span class="text-muted small">£{{ order.delivery_cost|floatformat:2 }}</span>
                             </li>
                             <li class="border-bottom my-2"></li>
                             <li class="d-flex align-items-center justify-content-between">
                                 <strong class="text-uppercase small font-weight-bold">Grand Total:</strong>
-                                <span class="text-muted small">£{{ order.grand_total }}</span>
+                                <span class="text-muted small">£{{ order.grand_total|floatformat:2 }}</span>
                             </li>
                             <li class="border-bottom my-2"></li>
                         </ul>
@@ -179,7 +177,7 @@
                     <span class="icon mr-2">
                         <i class="fas fa-gifts"></i>
                     </span>
-                    <span class="text-uppercase">Now check out the latest deals!</span>
+                    <span class="text-uppercase">Continue Shopping</span>
                 </a>
                 {% endif %}
             </div>
