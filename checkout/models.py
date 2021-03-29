@@ -66,6 +66,7 @@ class Order(models.Model):
 
         if self.user_profile:
             self.grand_total = self.order_total - self.member_discount + self.delivery_cost
+        else:    
             self.grand_total = self.order_total + self.delivery_cost
   
         self.save()
