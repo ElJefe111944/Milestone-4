@@ -3552,6 +3552,9 @@ select option[value=""] {
     color: #a5a7a8!important;
 }
 
+label.requiredField {
+    display: none;
+}
 
 /*
 * 15 - Preloader
