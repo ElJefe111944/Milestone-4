@@ -3,6 +3,9 @@ from django.db import models
 from django.db.models import Sum
 from django.conf import settings
 
+import decimal
+
+
 from django_countries.fields import CountryField
 
 from watches.models import Watch
@@ -58,13 +61,11 @@ class Order(models.Model):
         else:
             self.delivery_cost = 0
 
-        self.member_discount = (
-            self.order_total * settings.MEMBER_DISCOUNT / 100)
+        self.member_discount = decimal.Decimal(settings.MEMBER_DISCOUNT / 100) * self.order_total
         
+
         if self.user_profile:
-            self.grand_total = (
-               self.order_total + self.delivery_cost) - self.member_discount
-        else:
+            self.grand_total = self.order_total - self.member_discount + self.delivery_cost
             self.grand_total = self.order_total + self.delivery_cost
   
         self.save()
