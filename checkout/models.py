@@ -61,11 +61,12 @@ class Order(models.Model):
         else:
             self.delivery_cost = 0
 
-        self.member_discount = decimal.Decimal(settings.MEMBER_DISCOUNT / 100) * self.order_total
+        self.member_discount = (
+            decimal.Decimal(settings.MEMBER_DISCOUNT / 100) * self.order_total)
         
-
         if self.user_profile:
-            self.grand_total = self.order_total - self.member_discount + self.delivery_cost
+            self.grand_total = (
+                self.order_total - self.member_discount + self.delivery_cost)
         else:    
             self.grand_total = self.order_total + self.delivery_cost
   
