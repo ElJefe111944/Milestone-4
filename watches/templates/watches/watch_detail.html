@@ -12,31 +12,18 @@
                         <div class="row m-sm-0">
                             <div class="col-sm-10 order-1 order-sm-2">
                                 <div class="owl-carousel product-slider owl-loaded owl-drag" data-slider-id="1">
-                                    <div class="owl-stage-outer">
-                                        <div class="owl-stage" style="width: 1680px;">
-                                            {% if watch.image %}
-                                            <div class="owl-item active" style="width: 420px;"><a class="d-block"
-                                                    href="{% url 'watch_detail' watch.id %}" data-lightbox="product"
-                                                    title="Product item 1"><img class="img-fluid"
-                                                        src="{{ watch.image.url }}" alt="{{ watch.name }}">
-                                                </a>
-                                            </div>
-                                            {% else %}
-                                            <div class="owl-item active" style="width: 420px;"><a class="d-block"
-                                                    href="{% url 'watch_detail' watch.id %}" data-lightbox="product"
-                                                    title="Product item 1"><img class="img-fluid"
-                                                        src="{{ MEDIA_URL }}noimage.png" alt="{{ watch.name }}">
-                                                </a>
-                                            </div>
-                                            {% endif %}
-                                        </div>
-                                    </div>
+                                    {% if watch.image %}
+                                    <img src="{{ watch.image.url }}" class="img-fluid" alt="{{ watch.name }}">
+                                    {% else %}
+                                    <img src="https://eljefe111944-timekeepers.s3.eu-west-2.amazonaws.com/media/noimage.png" class="img-fluid" alt="{{ watch.name }}">
+                                    {% endif %}
                                     <div class="owl-dots">
                                         <div class="owl-dot active"><span></span></div>
                                         <div class="owl-dot"><span></span></div>
                                         <div class="owl-dot"><span></span></div>
                                         <div class="owl-dot"><span></span></div>
-                                    </div>
+                                    </div>                                
+                                   
                                 </div>
                             </div>
                         </div>
