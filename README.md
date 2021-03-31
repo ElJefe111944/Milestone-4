@@ -355,6 +355,22 @@ The following Web Development tools were used for this project for testing, debu
 
 ### Validator results
 
+- [HTML Validator](https://validator.w3.org/)
+
+No errors were found [Results](media/html_validator.JPG)
+
+- [CSS Validator](https://jigsaw.w3.org/css-validator/)
+
+There are two errors from the bootstrap link and therefore I am unable to rectify. The majority of the warnings are -moz-osx-font-smoothing is an unknown vendor, -webkit-transform is an unknown vendor. After searching online, I have decided to leave these as they are as they are not errors nor affecting the site. [Results](media/css_validator.JPG)
+
+- [Python Validator](http://pep8online.com/)
+
+All errors have been fixed. The settings.py file has been left as the variables were quite long but could not be changed as this would affect the overall function of the site. [Results](media/python_validator.JPG)
+
+- [Javascript Validator](https://jshint.com/)
+
+No errors were found [Results](media/js_validator.JPG)
+
 This website has been tested on the following devices: 
 - Moto G4 
 - Galaxy S5 
@@ -367,6 +383,7 @@ This website has been tested on the following devices:
 - iPad Pro
 
 ### Testing User Stories
+
 
 In this section, we will go over some of the user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
 

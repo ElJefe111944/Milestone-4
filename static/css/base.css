@@ -4002,6 +4002,10 @@ button.btn.like-btn.btn-outline-warning {
 	text-decoration: none;
 }
 
+.owl-item.active {
+    width: 300px!important;
+}
+
 .btn-outline-dark:focus {
 	color: #fff;
 	background: transparent;
