@@ -13,7 +13,7 @@ from .forms import ProductForm, ReviewForm
 
 def all_watches(request):
     """  A view to show an individual watch  """
-   
+
     watches = Watch.objects.all()
     query = None
     categories = None
@@ -57,21 +57,21 @@ def all_watches(request):
         'watches': watches,
         'search_term': query,
         'current_categories': categories,
-        'current_sorting': current_sorting, 
+        'current_sorting': current_sorting,
     }
-   
+
     return render(request, 'watches/all_watches.html', context)
 
 
 def watch_detail(request, watch_id):
     """  A view to all watches including any sorting and search queries  """
-   
+
     watch = get_object_or_404(Watch, pk=watch_id)
 
     context = {
         'watch': watch,
     }
-   
+
     return render(request, 'watches/watch_detail.html', context)
 
 
@@ -93,7 +93,7 @@ def add_watch(request):
                 request, 'Failed to add watch as the form is invalid.')
     else:
         form = ProductForm()
-    
+
     template = 'watches/add_watch.html'
     context = {
         'form': form,

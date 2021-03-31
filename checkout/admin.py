@@ -9,7 +9,7 @@ class OrderLineItemAdminInline(admin.TabularInline):
 
 class OrderAdmin(admin.ModelAdmin):
     inlines = (OrderLineItemAdminInline,)
-    
+
     readonly_fields = (
                     'order_number',
                     'date',
@@ -19,48 +19,48 @@ class OrderAdmin(admin.ModelAdmin):
                     'original_shoppingcart',
                     'stripe_pid',
                     'member_discount',
-                    )                    
+                    )
 
     fields = (
                 'order_number',
-                'user_profile', 
-                'name',                
+                'user_profile',
+                'name',
                 'email',
-                'phone_number', 
-                'country', 
+                'phone_number',
+                'country',
                 'postcode',
                 'address_line1',
-                'address_line2', 
-                'town_or_city', 
+                'address_line2',
+                'town_or_city',
                 'state_or_county',
-                'date', 
+                'date',
                 'delivery_cost',
                 'member_discount',
-                'order_total', 
+                'order_total',
                 'grand_total',
                 'original_shoppingcart',
-                'stripe_pid', 
+                'stripe_pid',
                 )
 
     list_display = (
-                    'order_number', 
-                    'name',                    
+                    'order_number',
+                    'name',
                     'email',
-                    'phone_number', 
-                    'country', 
+                    'phone_number',
+                    'country',
                     'postcode',
                     'address_line1',
-                    'address_line2', 
-                    'town_or_city', 
+                    'address_line2',
+                    'town_or_city',
                     'state_or_county',
-                    'date', 
+                    'date',
                     'member_discount',
                     'delivery_cost',
-                    'order_total', 
-                    'grand_total', 
+                    'order_total',
+                    'grand_total',
                     )
 
     ordering = ('-date',)
 
 
-admin.site.register(Order, OrderAdmin)    
+admin.site.register(Order, OrderAdmin)

@@ -9,7 +9,7 @@ from watches.models import Watch
 
 def view_shoppingcart(request):
     """  A view to render the shopping cart  """
-    
+
     return render(request, 'shoppingcart/shoppingcart.html')
 
 
@@ -24,7 +24,8 @@ def add_to_shoppingcart(request, item_id):
     if item_id in list(shoppingcart.keys()):
         shoppingcart[item_id] += quantity
         messages.success(
-            request, f'Updated {watch.name} quantity to the {shoppingcart[item_id]}')
+            request, f'Updated {watch.name} quantity \
+                 to the {shoppingcart[item_id]}')
     else:
         shoppingcart[item_id] = quantity
         messages.success(request, f'Added {watch.name} to the shopping cart')
@@ -37,14 +38,15 @@ def update_shoppingcart(request, item_id):
     """ Update the quantity of a specified product to the shopping bag """
 
     watch = get_object_or_404(Watch, pk=item_id)
-    quantity = int(request.POST.get('quantity')) 
+    quantity = int(request.POST.get('quantity'))
     shoppingcart = request.session.get('shoppingcart', {})
 
     if quantity > 0:
         shoppingcart[item_id] = quantity
         messages.success(
-            request, f'Updated {watch.name} quantity to {shoppingcart[item_id]}')
-        
+            request, f'Updated {watch.name} quantity \
+                 to {shoppingcart[item_id]}')
+
     else:
         shoppingcart.pop(item_id)
         messages.success(
@@ -66,7 +68,7 @@ def remove_from_shoppingcart(request, item_id):
 
         request.session['shoppingcart'] = shoppingcart
         return HttpResponse(status=200)
-    
+
     except Exception as e:
         messages.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)

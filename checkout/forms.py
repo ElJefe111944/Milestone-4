@@ -5,15 +5,15 @@ from .models import Order
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = (          
-            'name',            
+        fields = (
+            'name',
             'email',
-            'phone_number', 
-            'country', 
+            'phone_number',
+            'country',
             'postcode',
             'address_line1',
-            'address_line2', 
-            'town_or_city', 
+            'address_line2',
+            'town_or_city',
             'state_or_county',
             )
 
@@ -23,18 +23,18 @@ class OrderForm(forms.ModelForm):
         labels and set autofocus on first field
         """
         super().__init__(*args, **kwargs)
-        placeholders = {                           
-            'name': 'Name',            
+        placeholders = {
+            'name': 'Name',
             'email': 'Email',
-            'phone_number': 'Phone Number',             
+            'phone_number': 'Phone Number',
             'postcode': 'Postcode',
             'address_line1': 'Address 1',
-            'address_line2': 'Address 2', 
-            'town_or_city': 'Town or City', 
+            'address_line2': 'Address 2',
+            'town_or_city': 'Town or City',
             'state_or_county': 'State or County',
             }
 
-        self.fields['name'].widget.attrs['autofocus'] = True          
+        self.fields['name'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if field != 'country':
                 if self.fields[field].required:

@@ -23,13 +23,13 @@ class ProductForm(forms.ModelForm):
 
 
 class ReviewForm(forms.ModelForm):
-        
+
     class Meta:
         model = Review
-        fields = ['name', 'review', 'rating'] 
+        fields = ['name', 'review', 'rating']
 
         widgets = {
                 'name': forms.TextInput(attrs={'class': 'form-control'}),
                 'review': forms.Textarea(attrs={'class': 'form-control'}),
-               
+
             }

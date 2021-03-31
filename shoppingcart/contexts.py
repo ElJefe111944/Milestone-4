@@ -16,7 +16,7 @@ def shoppingcart_contents(request):
         total += quantity * watch.price
         product_count += quantity
         shoppingcart_items.append({
-            'item_id': item_id, 
+            'item_id': item_id,
             'quantity': quantity,
             'watch': watch,
         })
@@ -30,7 +30,7 @@ def shoppingcart_contents(request):
         else:
             grand_total = total + delivery
     else:
-        delivery = 0 
+        delivery = 0
         free_delivery_delta = 0
         if request.user.is_authenticated:
             discount = total * Decimal(settings.MEMBER_DISCOUNT / 100)
@@ -54,5 +54,5 @@ def shoppingcart_contents(request):
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'grand_total': grand_total,
     }
-    
+
     return context

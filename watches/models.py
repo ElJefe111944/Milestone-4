@@ -2,16 +2,16 @@ from django.db import models
 
 # Create your models here.
 
-""" Primary = New, Secondary = Discount, Danger = Sold """ 
+""" Primary = New, Secondary = Discount, Danger = Sold """
 LABEL = (
-    ('New', 'PRIMARY'), 
-    ('Discount', 'SECONDARY'), 
-    ('Sold', 'DANGER'), 
-) 
+    ('New', 'PRIMARY'),
+    ('Discount', 'SECONDARY'),
+    ('Sold', 'DANGER'),
+)
 
 
 class Brand(models.Model):
-    
+
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
@@ -21,7 +21,7 @@ class Brand(models.Model):
 
     def get_friendly_name(self):
         return self.friendly_name
-    
+
 
 class Category(models.Model):
     class Meta:
@@ -30,7 +30,7 @@ class Category(models.Model):
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-    
+
     def __str__(self):
         return self.name
 
@@ -54,8 +54,8 @@ class Watch(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     discount = models.FloatField(blank=True, null=True)
     label = models.CharField(
-        choices=LABEL, max_length=20, 
-        default='SOME STRING', 
+        choices=LABEL, max_length=20,
+        default='SOME STRING',
         blank=True, null=True
     )
     rating = models.DecimalField(

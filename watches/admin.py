@@ -8,14 +8,14 @@ class WatchAdmin(admin.ModelAdmin):
     list_display = (
         'sku',
         'name',
-        'brand',      
+        'brand',
         'price',
         'rating',
         'image',
     )
 
     ordering = ('sku',)
-    
+
 
 class BrandAdmin(admin.ModelAdmin):
     list_display = (
@@ -28,7 +28,7 @@ class BrandAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
-        'name',    
+        'name',
     )
 
 
