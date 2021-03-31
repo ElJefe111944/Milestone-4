@@ -248,7 +248,6 @@ The creation of this project has been a journey of many ups and down which I hav
 
 During development SQLite was used as Django uses SQL databases by default. For deployment PostgreSQL was used as provided by Heroku.
 
-(DATA MODALS GO HERE)
 
 ## Technologies Used
 ### Languages:
@@ -951,6 +950,6 @@ All the recipe images and profile page images have been taken from the following
 - [pixabay](https://pixabay.com/)
 
 ### Acknowledgements
--	Reuben Ferrante (Code Institute mentor) Thank you for your advice and guidance throughout this project helping improve the design and over function of the website.
+-	Reuben Ferrante (Code Institute mentor) Thank you for your advice and guidance throughout this project helping improve the design and over all function of the website.
 -	Code Institute Slack Community Thank you for your guidance with any queries or problems I have encountered during the making of this website.
 
