@@ -347,13 +347,24 @@ The industry standard wireframing tool was used at the start of this project to 
 
 The following Web Development tools were used for this project for testing, debugging and optimising different variation of HTML, CSS and JavaScript. The Web Developer tools were also used to view the layout and structure of the website through different devices and to test the behaviour of the website on standard screen sizes to cover all media devices.
 
-•	Chrome Developer Tools
-•	DevTools (Firefox)
-•	CSS Validator (Jigsaw)
-•	HTML Validator (NU)
-•	JavaScript Validator (Beautify Tools)
+-	Chrome Developer Tools
+-	DevTools (Firefox)
+-	CSS Validator (Jigsaw)
+-	HTML Validator (NU)
+-	JavaScript Validator (Beautify Tools)
 
-This website has been tested on the following devices: - Moto G4 - Galaxy S5 - Pixel 2 - iPhone 5/SE - iPhone 6/7/8 - iPhone 6/7/8 Plus - iPhone X - iPad - iPad Pro
+### Validator results
+
+This website has been tested on the following devices: 
+- Moto G4 
+- Galaxy S5 
+- Pixel 2 
+- iPhone 5/SE 
+- iPhone 6/7/8 
+- iPhone 6/7/8 Plus 
+- iPhone X 
+- iPad 
+- iPad Pro
 
 ### Testing User Stories
 
@@ -391,7 +402,7 @@ Guest User
 -	Go to the search bar in the centre of the Navigation bar available on all pages.
 
 
--*	Type the brand name or watch of interest and click the button labelled “Search”.
+-	Type the brand name or watch of interest and click the button labelled “Search”.
 
 
 -	A list of watches relevant to the search input will be displayed.
@@ -484,7 +495,7 @@ Guest User
 
 -	Once all fields have been completed regarding billing address and there are no error messages, proceed to the payment details field.
 
--	In the payment input field enter the following:
+	In the payment input field enter the following:
     credit card: 4242 4242 4242 4242
     expiration date: 04 / 24
     CVC: 424

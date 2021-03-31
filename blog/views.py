@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import (
     CreateView, UpdateView, DeleteView)
@@ -15,16 +15,16 @@ from .models import Post, Comment
 
 def LikeView(request, pk):
     if request.user.is_authenticated:
-        myPost = get_object_or_404(Post, pk=pk)       
-        user_like = get_object_or_404(User, pk=request.user.id)
+        myPost = get_object_or_404(Post, pk=pk)
+        # user_like = get_object_or_404(User, pk=request.user.id)
         if myPost.likes.filter(id=request.user.id).exists():
             myPost.likes.remove(request.user)
-        else:     
+        else:
             myPost.likes.add(request.user)
             myPost.save()
-    
+
         return HttpResponseRedirect(reverse('blog_detail', args=[str(pk)]))
- 
+
 
 class BlogHomeView(ListView):
     model = Post
