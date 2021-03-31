@@ -30,7 +30,7 @@ def cache_checkout_data(request):
     except Exception as e:
         messages.error(request, 'Sorry, your payment cannot be \
             processed right now. Please try again later.')
-        return HttpResponse(content=e, status=400) 
+        return HttpResponse(content=e, status=400)
 
 
 def checkout(request):
@@ -41,7 +41,7 @@ def checkout(request):
         shoppingcart = request.session.get('shoppingcart', {})
 
         form_data = {
-            'name': request.POST['name'],            
+            'name': request.POST['name'],
             'email': request.POST['email'],
             'phone_number': request.POST['phone_number'],
             'country': request.POST['country'],
@@ -50,7 +50,7 @@ def checkout(request):
             'address_line1': request.POST['address_line1'],
             'address_line2': request.POST['address_line2'],
             'state_or_county': request.POST['state_or_county'],
-        }   
+        }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
@@ -90,7 +90,7 @@ def checkout(request):
             messages.error(
                 request, "There is nothing currently in your shopping bag")
             return redirect(reverse('watches'))
-        
+
         current_shoppingcart = shoppingcart_contents(request)
         total = current_shoppingcart['grand_total']
         stripe_total = round(total * 100)
@@ -98,9 +98,9 @@ def checkout(request):
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
-        ) 
-    
-        """Attempt to prefill the form with any 
+        )
+
+        """Attempt to prefill the form with any
         info the user maintains in their profile
         """
         if request.user.is_authenticated:
@@ -125,7 +125,7 @@ def checkout(request):
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing.\
              Did you forget to set it in your enviroment?')
-    
+
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
@@ -134,13 +134,13 @@ def checkout(request):
     }
 
     return render(request, template, context)
-    
+
 
 def checkout_success(request, order_number):
     """ View to handle successful checkouts """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-    
+
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
         # Attach the user's profile to the order
@@ -157,11 +157,11 @@ def checkout_success(request, order_number):
                 'default_state_or_county': order.state_or_county,
                 'default_postcode': order.postcode,
                 'default_country': order.country,
-            }    
+            }
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
-                user_profile_form.save()    
-    
+                user_profile_form.save()
+
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
